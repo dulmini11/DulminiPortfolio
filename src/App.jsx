@@ -2,8 +2,9 @@
 import './App.css';
 import React, { useState, useEffect, useRef } from 'react';
 import emailjs from "@emailjs/browser";
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaJava, FaDatabase } from 'react-icons/fa';
+import { FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaJava, FaDatabase } from 'react-icons/fa';
 import { FaMapSigns, FaPhoneAlt, FaPaperPlane, FaLinkedin } from 'react-icons/fa';
+import { SiNextdotjs } from 'react-icons/si'; // Import Next.js icon from simple-icons
 import v4 from './assets/v4.mp4';
 import v1 from './assets/v1.mp4';
 import v2 from './assets/v2.mp4';
@@ -93,7 +94,10 @@ const handleSubmit = (e) => {
     { name: 'React', icon: <FaReact color="#ffbd39" size={50} /> },
     { name: 'Python', icon: <FaPython color="#ffbd39" size={50} /> },
     { name: 'Java', icon: <FaJava color="#ffbd39" size={50} /> },
+    { name: 'Next.js', icon: <SiNextdotjs color="#ffbd39" size={50} /> },
+    { name: 'Node.js', icon: <FaNodeJs color="#ffbd39" size={50} /> },
     { name: 'SQL', icon: <FaDatabase color="#ffbd39" size={50} /> },
+    
   ];
 
   const contactDetails = [
@@ -113,10 +117,19 @@ const handleSubmit = (e) => {
       info: 'dulminihw@gmail.com',
     },
     {
-      label: 'LINKEDIN',
-      icon: <FaLinkedin size={30} color="#ffbd39" />,
-      info: 'Dulmini Wanigasekara',
-    },
+    label: 'LINKEDIN',
+    icon: <FaLinkedin size={30} color="#ffbd39" />,
+    info: (
+      <a
+        href="https://www.linkedin.com/in/dulmini-wanigasekara-756740333/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="contact-info"
+      >
+        Dulmini Wanigasekara
+      </a>
+    ),
+  },
   ];
 
   const projects = [
@@ -486,73 +499,76 @@ const handleSubmit = (e) => {
         <h1 className="skills-background">Contact</h1>
       </div>
           
-
-          <div className="contact-grid">
-            {contactDetails.map((item, index) => (
-              <div key={index} className="contact-card">
-                <div className="contact-icon">{item.icon}</div>
-                <p className="contact-label">{item.label}</p>
-                <p className="contact-info">{item.info}</p>
-              </div>
-            ))}
-          </div>
         </section>
 
         {/* Contact Section */}
-        <section>              
-            <div>
-            
-            <div className="contact-form">
-              <form ref={form} onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                
-                <div className="form-group">
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="subject"
-                    placeholder="Subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                
-                <div className="form-group">
-                  <textarea
-                    name="message"
-                    placeholder="Your Message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows="6"
-                    required
-                  ></textarea>
-                </div>
-                
-                <button type="submit" className="submit-btn">Send Message</button>
-              </form>
-            </div>
-          </div>
-        </section>
+        <section className="contact-section">
+  <div className="contact-content">
+    
+    {/* Contact Grid */}
+    <div className="contact-grid">
+      {contactDetails.map((item, index) => (
+        <div key={index} className="contact-card">
+          <div className="contact-icon">{item.icon}</div>
+          <p className="contact-label">{item.label}</p>
+          <p className="contact-info">{item.info}</p>
+        </div>
+      ))}
+    </div>
+
+    {/* Contact Form */}
+    <div className="contact-form">
+      <form ref={form} onSubmit={handleSubmit}>
+        <div className="form-group">
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <input
+            type="text"
+            name="subject"
+            placeholder="Subject"
+            value={formData.subject}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            value={formData.message}
+            onChange={handleChange}
+            rows="6"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" className="submit-btn">Send Message</button>
+      </form>
+    </div>
+
+  </div>
+</section>
       </main>
 
       <footer className="footer">
