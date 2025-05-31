@@ -862,4 +862,33 @@
     }
   }
   
-  
+  /* Tablet view (screens ≤ 991px) */
+@media (max-width: 991px) {
+  .contact-form {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    padding: 20px;
+  }
+}
+
+/* Mobile view (screens ≤ 576px) */
+@media (max-width: 576px) {
+  .contact-form {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+}
