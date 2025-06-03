@@ -76,7 +76,7 @@ button:focus-visible {
   border-radius: 50%;
   text-decoration: none;
   color: #ffbd39;
-  margin-left: 10px;
+  margin-right: 10px;
   transition: all 0.3s ease;
 }
 

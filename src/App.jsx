@@ -274,14 +274,7 @@ const handleSubmit = (e) => {
                 <span className="hello">HELLO!</span>
                 <h1 className="name">I'm <span className="highlight">Dulmini Wanigasekara</span></h1>
                 <p className="location">based in Sri Lanka</p>
-                <a 
-                  href="./assets/cv.pdf" 
-                  className="download-cv btn btn-primary py-3 px-3" 
-                  download="DulminiWanigasekaraCV.pdf"
-                >
-                  Download CV
-                </a>
-                <a 
+              <a 
                 href="https://github.com/dulmini11" 
                 className="github-link" 
                 target="_blank" 
@@ -289,6 +282,13 @@ const handleSubmit = (e) => {
               >
                 <i className="fab fa-github"></i>
               </a>
+                <a 
+                  href="./assets/cv.pdf" 
+                  className="download-cv btn btn-primary py-3 px-3" 
+                  download="DulminiWanigasekaraCV.pdf"
+                >
+                  Download CV
+                </a>
 
               </div>
               <div className="profile-image">
@@ -306,14 +306,7 @@ const handleSubmit = (e) => {
                 <span className="hello">HELLO!</span>
                 <h1 className="name">I'm <span className="highlight">Software <br/>Developer</span></h1>
                 <p className="location">based in Sri Lanka</p>
-                <a 
-                  href="./assets/cv.pdf" 
-                  className="download-cv2 btn btn-primary py-3 px-3" 
-                  download="DulminiWanigasekaraCV.pdf"
-                >
-                  Download CV
-                </a>
-                <a 
+                                <a 
                 href="https://github.com/dulmini11" 
                 className="github-link" 
                 target="_blank" 
@@ -321,6 +314,13 @@ const handleSubmit = (e) => {
               >
                 <i className="fab fa-github"></i>
               </a>
+                <a 
+                  href="./assets/cv.pdf" 
+                  className="download-cv2 btn btn-primary py-3 px-3" 
+                  download="DulminiWanigasekaraCV.pdf"
+                >
+                  Download CV
+                </a>
               </div>
               <div className="profile-image">
                 <div className="profile-image">
