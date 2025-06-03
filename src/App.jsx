@@ -282,6 +282,14 @@ const handleSubmit = (e) => {
               >
                 <i className="fab fa-github"></i>
               </a>
+              <a 
+                href="https://www.linkedin.com/in/dulmini-wanigasekara-756740333/" 
+                className="linkedin-link" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-linkedin-in"></i>
+              </a>
                 <a 
                   href="./assets/cv.pdf" 
                   className="download-cv btn btn-primary py-3 px-3" 
@@ -306,13 +314,21 @@ const handleSubmit = (e) => {
                 <span className="hello">HELLO!</span>
                 <h1 className="name">I'm <span className="highlight">Software <br/>Developer</span></h1>
                 <p className="location">based in Sri Lanka</p>
-                                <a 
+              <a 
                 href="https://github.com/dulmini11" 
                 className="github-link" 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
                 <i className="fab fa-github"></i>
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/dulmini-wanigasekara-756740333/" 
+                className="linkedin-link" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-linkedin-in"></i>
               </a>
                 <a 
                   href="./assets/cv.pdf" 
