@@ -173,6 +173,20 @@ const handleSubmit = (e) => {
     },
     {
       id: 6,
+      title: "Zoom to space",
+      description: "Zoom to Space is a React.js web app that makes learning about space fun and interactive. It features a solar system carousel, animated visuals, and detailed views of planets and other space objects all designed to simplify space concepts and spark curiosity.",
+      image: null,
+      video:v3
+    },
+        {
+      id: 6,
+      title: "Climatrix (Weather website)",
+      description: "Developed a website featuring a cart for wellness products, healthy recipes, and exercise guides, promoting a healthier lifestyle with an interactive and user-friendly design.",
+      image: null,
+      video:v3
+    },
+        {
+      id: 6,
       title: "Wellness & Well-Being Website",
       description: "Developed a website featuring a cart for wellness products, healthy recipes, and exercise guides, promoting a healthier lifestyle with an interactive and user-friendly design.",
       image: null,
