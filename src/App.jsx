@@ -16,6 +16,8 @@ import Malaysia from './images/karate.jpeg';
 import football from './images/foodball.jpeg';
 import school from './images/school.jpg';
 import karatee from './images/karate2.jpg';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -279,6 +281,15 @@ const handleSubmit = (e) => {
                 >
                   Download CV
                 </a>
+                <a 
+                href="https://github.com/dulmini11" 
+                className="github-link" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-github"></i>
+              </a>
+
               </div>
               <div className="profile-image">
                 <div className="profile-image">
@@ -302,6 +313,14 @@ const handleSubmit = (e) => {
                 >
                   Download CV
                 </a>
+                <a 
+                href="https://github.com/dulmini11" 
+                className="github-link" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-github"></i>
+              </a>
               </div>
               <div className="profile-image">
                 <div className="profile-image">
