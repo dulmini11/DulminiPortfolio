@@ -123,11 +123,9 @@
     background-color:#ffbd39;
     color: #000;
     font-size: small;
-    border: none;
     padding: 12px 24px;
     border-radius: 30px;
     font-weight: bold;
-    border-color: #000;
     cursor: pointer;
     text-decoration: none;
   }
@@ -867,4 +865,87 @@
     padding: 12px;
     font-size: 16px;
   }
+}
+
+.github-link {
+  display: inline-block;
+  padding: 10px;
+  width: 47px;
+  height: 47px;
+  border: 2px solid #ffbd39;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #ffbd39;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.github-link:hover {
+  background-color: #ffbd39;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 189, 57, 0.3);
+}
+
+.github-link i {
+  font-size: 24px;
+}
+
+/* Alternative minimal version */
+.github-link.minimal {
+  border: 1px solid #ffbd39;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.github-link.minimal:hover {
+  border-color: #e6a82d;
+  background-color: rgba(255, 189, 57, 0.1);
+}
+
+/* LinkedIn Link Styles */
+.linkedin-link {
+  display: inline-block;
+  padding: 10px;
+  border: 2px solid #ffbd39;
+  border-radius: 50%;
+  width: 47px;
+  height: 47px;
+  margin-right: 20px;
+  text-decoration: none;
+  color:  #ffbd39;
+  transition: all 0.3s ease;
+  margin-left: 10px; /* Space between links if placed side by side */
+}
+
+.linkedin-link:hover {
+  background-color: #ffbd39;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 189, 57, 0.3);
+}
+
+.linkedin-link i {
+  font-size: 24px;
+}
+
+/* Container for social links */
+.social-links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Alternative minimal version */
+.github-link.minimal,
+.linkedin-link.minimal {
+  border: 1px solid #ffbd39;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.github-link.minimal:hover,
+.linkedin-link.minimal:hover {
+  border-color: #e6a82d;
+  background-color: rgba(255, 189, 57, 0.1);
 }

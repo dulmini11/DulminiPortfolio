@@ -66,39 +66,3 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
-
-.github-link {
-  display: inline-block;
-  padding: 10px;
-  width: 47px;
-  height: 47px;
-  border: 2px solid #ffbd39;
-  border-radius: 50%;
-  text-decoration: none;
-  color: #ffbd39;
-  margin-right: 10px;
-  transition: all 0.3s ease;
-}
-
-.github-link:hover {
-  background-color: #ffbd39;
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(255, 189, 57, 0.3);
-}
-
-.github-link i {
-  font-size: 24px;
-}
-
-/* Alternative minimal version */
-.github-link.minimal {
-  border: 1px solid #ffbd39;
-  padding: 8px 12px;
-  border-radius: 4px;
-}
-
-.github-link.minimal:hover {
-  border-color: #e6a82d;
-  background-color: rgba(255, 189, 57, 0.1);
-}
