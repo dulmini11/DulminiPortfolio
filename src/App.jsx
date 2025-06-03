@@ -380,7 +380,7 @@ const handleSubmit = (e) => {
               
               <div className="info-item">
                 <span className="info-label">Date of birth:</span>
-                <span className="info-value">march 11, 2005</span>
+                <span className="info-value">March 11, 2005</span>
               </div>
               
               <div className="info-item">
@@ -529,8 +529,8 @@ const handleSubmit = (e) => {
                 <div className="achievement-title">School & University</div>
                 <div className="achievement-meta">Informatics Institute of Technology / St. Thomas Girls' High School</div>
                 <img src={football} alt="University" className="achievement-img" />
-                <p className="mt-4">Rugby player</p>
-                <p className="mt-4">Forward pass football player</p>
+                <p className="mt-4">Rugby player(Wing)</p>
+                <p className="mt-4">football player(CAM)</p>
                 <p className="mt-4">Athletic - 100m / 400m Hurdles and relay team</p>
                 <p className="mt-4">Netball player (WA)</p>
               </div>
