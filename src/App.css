@@ -615,20 +615,21 @@
 }
 
 .contact-content {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  gap: 60px;
 }
 
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, auto);
   gap: 30px;
-  justify-content: center;
+  flex: 1;
+  max-width: 500px;
 }
 
 .contact-card {
@@ -811,9 +812,10 @@
     background-color: #111;
     padding: 30px;
     border-radius: 10px;
-    width:700px;
-    height: 500px;
     margin-left: 20%;
+    flex: 1;
+  max-width: 700px;
+  position: relative;
   }
 
   .form-group {

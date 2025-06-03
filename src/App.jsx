@@ -551,8 +551,8 @@ const handleSubmit = (e) => {
         </section>
 
         {/* Contact Section */}
-        <section className="contact-section">
-  <div className="contact-content">
+    <section className="contact-section">
+        <div className="contact-content">
     
     {/* Contact Grid */}
     <div className="contact-grid">
