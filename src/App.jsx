@@ -368,7 +368,7 @@ const handleSubmit = (e) => {
         {/* About Section */}
         <section id="about" className="skills-section">
           <div className="profile-section">
-            <div className="profile-image">
+            <div className=" profile-image">
               <img src={pic} alt="Dulmini Wanigasekara" />
             </div>
             <div className="title-container">
@@ -500,7 +500,7 @@ const handleSubmit = (e) => {
                 <div className="achievement-meta">Malaysia</div>
                 <img src={Malaysia} alt="Karate" className="achievement-img" />
                 <p className="mt-4">
-                  11st Runner up Award 13-14 Female Kumite +40kg 8th International Karate-Do Open Championship 2018(Malaysia)
+                  1st Runner up Award 13-14 Female Kumite +40kg 8th International Karate-Do Open Championship 2018(Malaysia)
                 </p>
               </div>
             </div>
