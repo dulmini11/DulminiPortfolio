@@ -9,7 +9,6 @@ import v4 from './assets/v4.mp4';
 import v1 from './assets/v1.mp4';
 import v2 from './assets/v2.mp4';
 import v3 from './assets/v3.mp4';
-import cvFile from './assets/cv.pdf';
 import java from './images/java.png';
 import sd1 from './images/sd1.png';
 import pic from './images/bg_1.png';
@@ -306,12 +305,13 @@ const handleSubmit = (e) => {
                 <i className="fab fa-linkedin-in"></i>
               </a>
               <a
-                href={cvFile}
+                href="/cv.pdf"
                 className="download-cv btn btn-primary py-3 px-3"
                 download="DulminiWanigasekaraCV.pdf"
               >
                 Download CV
               </a>
+
 
               </div>
               <div className="profile-image">
@@ -346,12 +346,13 @@ const handleSubmit = (e) => {
                 <i className="fab fa-linkedin-in"></i>
               </a>
               <a
-                href={cvFile}
+                href="/cv.pdf"
                 className="download-cv btn btn-primary py-3 px-3"
                 download="DulminiWanigasekaraCV.pdf"
               >
                 Download CV
               </a>
+
               </div>
               <div className="profile-image">
                 <div className="profile-image">
@@ -414,12 +415,13 @@ const handleSubmit = (e) => {
               </div>
               
             <a
-              href={cvFile}
+              href="/cv.pdf"
               className="download-cv btn btn-primary py-3 px-3"
               download="DulminiWanigasekaraCV.pdf"
             >
               Download CV
             </a>
+
             </div>
           </div>
         </section>
