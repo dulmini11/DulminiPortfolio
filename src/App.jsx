@@ -529,8 +529,8 @@ const handleSubmit = (e) => {
                 <div className="achievement-title">School & University</div>
                 <div className="achievement-meta">Informatics Institute of Technology / St. Thomas Girls' High School</div>
                 <img src={football} alt="University" className="achievement-img" />
-                <p className="mt-4">Rugby player(Wing)</p>
-                <p className="mt-4">football player(CAM)</p>
+                <p className="mt-4">Rugby player (Wing)</p>
+                <p className="mt-4">football player (CAM)</p>
                 <p className="mt-4">Athletic - 100m / 400m Hurdles and relay team</p>
                 <p className="mt-4">Netball player (WA)</p>
               </div>
