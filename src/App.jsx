@@ -9,6 +9,8 @@ import v4 from './assets/v4.mp4';
 import v1 from './assets/v1.mp4';
 import v2 from './assets/v2.mp4';
 import v3 from './assets/v3.mp4';
+import v5 from './assets/v5.mp4';
+import v6 from './assets/v6.mp4';
 import java from './images/java.png';
 import sd1 from './images/sd1.png';
 import pic from './images/bg_1.png';
@@ -138,21 +140,21 @@ const handleSubmit = (e) => {
     {
       id: 1,
       title: "Story Sound HUB",
-      description: "Collaborated on a group project, developing the frontend of an AI-powered book-sharing platform using React.js. Implemented features like book addition, swapping, interactive search filters, and an AI chatbot for user assistance, ensuring a seamless and engaging experience.",
+      description: "Collaborated on a group project, developing the frontend of an AI-powered book-sharing platform using React.js. Implemented features like book addition, swapping, interactive search filters and an AI chatbot for user assistance, ensuring a seamless and engaging experience.",
       image: null,
       video:v4
     },
     {
       id: 2,
       title: "Real Estate Listings Platform",
-      description: "Developed a React.js web app for property search and filtering by type, price, bedrooms, date, and location. Built an interactive UI with dynamic listings, favorites management (local storage), responsive design, and React tabs for detailed views. Integrated Google Maps .",
+      description: "Developed a React.js web app for property search and filtering by type, price, bedrooms, date and location. Built an interactive UI with dynamic listings, favorites management (local storage), responsive design and React tabs for detailed views. Integrated Google Maps .",
       image: null,
       video:v1
     },
     {
       id: 3,
       title: "QuickRoute E01",
-      description: "Developed the frontend of QuickRoute E01, a web-based bus booking platform for the Southern Expressway. Implemented user-friendly interfaces using React.js, enabling seamless bus booking, real-time bus search, and ticket visibility.",
+      description: "Developed the frontend of QuickRoute E01, a web-based bus booking platform for the Southern Expressway. Implemented user-friendly interfaces using React.js, enabling seamless bus booking, real-time bus search and ticket visibility.",
       image: null,
       video:v2
       
@@ -160,35 +162,35 @@ const handleSubmit = (e) => {
     {
       id: 4,
       title: "Scientific Research Data Management System",
-      description: "Developed a sophisticated system for managing and analyzing scientific research data in Python. including structured programming, object-oriented programming (OOP), advanced serialization techniques, and graphical user interface (GUI) development.",
+      description: "Developed a sophisticated system for managing and analyzing scientific research data in Python. including structured programming, object-oriented programming (OOP), advanced serialization techniques and graphical user interface (GUI) development.",
       image: sd1,
       video:null
     },
     {
       id: 5,
       title: "Java Student Management System",
-      description: "Created a Java-based system to manage student records with features like registration, deletion, search, file storage, and report generation. Implemented input validation, file handling, and sorting. All functionalities were successfully tested and passed.",
+      description: "Created a Java-based system to manage student records with features like registration, deletion, search, file storage and report generation. Implemented input validation, file handling and sorting. All functionalities were successfully tested and passed.",
       image: java,
       video:null
     },
     {
       id: 6,
       title: "Zoom to space",
-      description: "Zoom to Space is a React.js web app that makes learning about space fun and interactive. It features a solar system carousel, animated visuals, and detailed views of planets and other space objects all designed to simplify space concepts and spark curiosity.",
+      description: "Zoom to Space is a React.js web app that makes learning about space fun and interactive. It features a solar system carousel, animated visuals and detailed views of planets and other space objects all designed to simplify space concepts and spark curiosity.",
       image: null,
-      video:v3
+      video:v5
     },
         {
       id: 6,
       title: "Climatrix (Weather website)",
-      description: "Developed a website featuring a cart for wellness products, healthy recipes, and exercise guides, promoting a healthier lifestyle with an interactive and user-friendly design.",
+      description: "Climatrix is a modern weather forecasting app built with Next.js, React Query and Tailwind CSS, using real-time data from the OpenWeatherMap API. It provides users with current weather updates, 7-day forecasts, temperature trends and sunrise/sunset times in a clean and responsive layout.",
       image: null,
-      video:v3
+      video:v6
     },
         {
       id: 6,
       title: "Wellness & Well-Being Website",
-      description: "Developed a website featuring a cart for wellness products, healthy recipes, and exercise guides, promoting a healthier lifestyle with an interactive and user-friendly design.",
+      description: "Developed a website featuring a cart for wellness products, healthy recipes and exercise guides, promoting a healthier lifestyle with an interactive and user-friendly design.",
       image: null,
       video:v3
     }
@@ -347,7 +349,7 @@ const handleSubmit = (e) => {
               </a>
               <a
                 href="/cv.pdf"
-                className="download-cv btn btn-primary py-3 px-3"
+                className="download-cv2 btn btn-primary py-3 px-3"
                 download="DulminiWanigasekaraCV.pdf"
               >
                 Download CV
@@ -533,7 +535,7 @@ const handleSubmit = (e) => {
                 <div className="achievement-meta">Informatics Institute of Technology / St. Thomas Girls' High School</div>
                 <img src={football} alt="University" className="achievement-img" />
                 <p className="mt-4">Rugby player (Wing)</p>
-                <p className="mt-4">football player (CAM)</p>
+                <p className="mt-4">Football player (CAM)</p>
                 <p className="mt-4">Athletic - 100m / 400m Hurdles and relay team</p>
                 <p className="mt-4">Netball player (WA)</p>
               </div>
