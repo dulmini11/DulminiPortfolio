@@ -190,7 +190,7 @@ const handleSubmit = (e) => {
         {
       id: 6,
       title: "Wellness & Well-Being Website",
-      description: "Developed a website featuring a cart for wellness products, healthy recipes and exercise guides, promoting a healthier lifestyle with an interactive and user-friendly design.",
+      description: "Collaborated on a group project, developed a website featuring a cart for wellness products, healthy recipes and exercise guides, promoting a healthier lifestyle with an interactive and user-friendly design.",
       image: null,
       video:v3
     }
