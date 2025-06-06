@@ -572,53 +572,42 @@ const handleSubmit = (e) => {
 
     {/* Contact Form */}
     <div className="contact-form">
-      <form ref={form} onSubmit={handleSubmit}>
+      <form
+        action="https://formsubmit.co/dulminihw@gmail.com"
+        method="POST"
+      >
         <div className="form-group">
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
+          <input type="text" name="name" placeholder="Your Name" required />
         </div>
 
         <div className="form-group">
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
+          <input type="email" name="email" placeholder="Your Email" required />
         </div>
 
         <div className="form-group">
-          <input
-            type="text"
-            name="subject"
-            placeholder="Subject"
-            value={formData.subject}
-            onChange={handleChange}
-            required
-          />
+          <input type="text" name="subject" placeholder="Subject" required />
         </div>
 
         <div className="form-group">
           <textarea
             name="message"
             placeholder="Your Message"
-            value={formData.message}
-            onChange={handleChange}
             rows="6"
             required
           ></textarea>
         </div>
 
-        <button type="submit" className="submit-btn">Send Message</button>
+        {/* Optional: disable CAPTCHA */}
+        <input type="hidden" name="_captcha" value="false" />
+
+        {/* Optional: redirect to a thank you page */}
+        {/* <input type="hidden" name="_next" value="https://yourdomain.com/thank-you" /> */}
+
+        <button type="submit" className="submit-btn">
+          Send Message
+        </button>
       </form>
+
     </div>
 
   </div>
