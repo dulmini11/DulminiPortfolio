@@ -11,6 +11,7 @@ import v2 from './assets/v2.mp4';
 import v3 from './assets/v3.mp4';
 import v5 from './assets/v5.mp4';
 import v6 from './assets/v6.mp4';
+import v7 from './assets/v7.mp4';
 import java from './images/java.png';
 import sd1 from './images/sd1.png';
 import pic from './images/bg_1.png';
@@ -180,15 +181,22 @@ const handleSubmit = (e) => {
       image: null,
       video:v5
     },
-        {
-      id: 6,
+    {
+      id: 7,
+      title: "FocusZone",
+      description: 'A productivity web application built with HTML, CSS and JavaScript featuring a Pomodoro study timer, relaxing video backgrounds, and interactive Tic Tac Toe game. Designed with responsive layout for cross-device compatibility, promoting balanced study sessions through focused work periods and mindful break activitie',
+      image: null,
+      video:v7
+    },
+    {
+      id: 8,
       title: "Climatrix (Weather website)",
       description: "Climatrix is a modern weather forecasting app built with Next.js, React Query and Tailwind CSS, using real-time data from the OpenWeatherMap API. It provides users with current weather updates, 7-day forecasts, temperature trends and sunrise/sunset times in a clean and responsive layout.",
       image: null,
       video:v6
     },
         {
-      id: 6,
+      id: 9,
       title: "Wellness & Well-Being Website",
       description: "Collaborated on a group project, developed a website featuring a cart for wellness products, healthy recipes and exercise guides, promoting a healthier lifestyle with an interactive and user-friendly design.",
       image: null,
