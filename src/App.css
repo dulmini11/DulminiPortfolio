@@ -1177,3 +1177,51 @@
     font-size: 1.8rem;
   }
 }
+
+/* Small screen (phones, tablets) responsive adjustments */
+@media (max-width: 768px) {
+  .two-columns {
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .left-column,
+  .right-column {
+    width: 100%;
+  }
+
+  .skills-header {
+    text-align: center;
+  }
+
+  .skills-title {
+    font-size: 24px;
+  }
+
+  .skills-background {
+    font-size: 32px;
+    margin-top: -15px;
+    text-align: center;
+  }
+
+  .info-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .info-label {
+    width: auto;
+    font-weight: 600;
+  }
+
+  .download-cv {
+    width: 100%;
+    text-align: center;
+  }
+
+  .project-count {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
