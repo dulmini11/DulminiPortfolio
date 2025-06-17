@@ -159,6 +159,33 @@
     text-decoration: none;
 }
 
+/* Main container for two columns */
+.two-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px; /* Controls gap between left and right */
+  padding: 20px;
+}
+
+/* Left side (title section) */
+.left-column {
+  flex: 1;
+  min-width: 280px;
+  margin-top: 80px;
+}
+
+/* Right side (info and download) */
+.right-column {
+  flex: 2;
+  min-width: 320px;
+}
+
+.profile-image2{
+  margin-right: 567px;
+
+}
+
   /* About styles */
   .profile-section {
     display: flex;

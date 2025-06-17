@@ -375,66 +375,54 @@ const handleSubmit = (e) => {
 
         {/* About Section */}
         <section id="about" className="skills-section">
-          <div className="profile-section">
-            <div className=" profile-image">
-              <img src={pic} alt="Dulmini Wanigasekara" />
-            </div>
-            <div className="title-container">
+        <div className="profile-section two-columns">
+          {/* Left Side – Heading */}
+          <div className="left-column">
             <div className="skills-header">
-        <h2 className="skills-title">About Me</h2>
-        <h1 className="skills-background">About</h1>
-      </div>
-             
-              <div className="info-item">
-                <span className="info-label">Name:</span>
-                <span className="info-value">Dulmini Wanigasekara</span>
-              </div>
-              
-              <div className="info-item">
-                <span className="info-label">Date of birth:</span>
-                <span className="info-value">March 11, 2005</span>
-              </div>
-              
-              <div className="info-item">
-                <span className="info-label">School:</span>
-                <span className="info-value">St. Thomas Girls 'High school Matara</span>
-              </div>
-              
-              <div className="info-item">
-                <span className="info-label">University:</span>
-                <span className="info-value">IIT Campus, Sri Lanka (Affiliated with the University of Westminster)</span>
-              </div>
-              
-              <div className="info-item">
-                <span className="info-label">Address:</span>
-                <span className="info-value">Maharagama Colombo</span>
-              </div>
-              
-              <div className="info-item">
-                <span className="info-label">Email:</span>
-                <span className="info-value">dulminihw@gamil.com</span>
-              </div>
-              
-              <div className="info-item">
-                <span className="info-label">Phone:</span>
-                <span className="info-value">+94 76 912 1952</span>
-              </div>
-              
+              <h2 className="skills-title">About Me</h2>
+              <h1 className="skills-background">About</h1>
+            </div>
+          </div>
+
+          {/* Right Side – Info */}
+          <div className="right-column">
+            <div className="info-item">
+              <span className="info-label">Name:</span>
+              <span className="info-value">Dulmini Wanigasekara</span>
+            </div>
+            <div className="info-item">
+              <span className="info-label">Date of birth:</span>
+              <span className="info-value">March 11, 2005</span>
+            </div>
+            <div className="info-item">
+              <span className="info-label">School:</span>
+              <span className="info-value">St. Thomas Girls' High School Matara</span>
+            </div>
+            <div className="info-item">
+              <span className="info-label">University:</span>
+              <span className="info-value">IIT Campus, Sri Lanka (Affiliated with University of Westminster)</span>
+            </div>
+            <div className="info-item">
+              <span className="info-label">Address:</span>
+              <span className="info-value">Maharagama Colombo</span>
+            </div>
+            <div className="info-item">
+              <span className="info-label">Email:</span>
+              <span className="info-value">dulminihw@gamil.com</span>
+            </div>
+            <div className="info-item">
+              <span className="info-label">Phone:</span>
+              <span className="info-value">+94 76 912 1952</span>
+            </div>
+            <div className="profile-image2">
               <div className="project-count">
                 <span className="count">7</span> Project complete
               </div>
-              
-            <a
-              href="/cv.pdf"
-              className="download-cv btn btn-primary py-3 px-3"
-              download="DulminiWanigasekaraCV.pdf"
-            >
-              Download CV
-            </a>
-
             </div>
           </div>
-        </section>
+        </div>
+      </section>
+
 
         {/* Projects Section */}
         <section id='projects' className='skills-section'>
