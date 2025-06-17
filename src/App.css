@@ -287,9 +287,10 @@
 
   .skills-section {
     background-color: #000;
-    margin-top: 70px;
+    margin-top: 170px;
     text-align: center;
     color: white;
+    margin-bottom: 50px;
   }
   
   .skills-header {
@@ -367,8 +368,9 @@
 /* Section Header */
 .achievements-header {
   position: relative;
-  margin-bottom: 80px;
+  margin-bottom: 90px;
   text-align: center;
+  margin-top: 160px;
 }
 
 .achievements-title {
