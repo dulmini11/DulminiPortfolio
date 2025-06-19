@@ -2,9 +2,8 @@
 import './App.css';
 import React, { useState, useEffect, useRef } from 'react';
 import emailjs from "@emailjs/browser";
-import { FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaJava, FaDatabase } from 'react-icons/fa';
-import { FaMapSigns, FaPhoneAlt, FaPaperPlane, FaLinkedin } from 'react-icons/fa';
-import { SiNextdotjs } from 'react-icons/si'; // Import Next.js icon from simple-icons
+import { FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaJava, FaDatabase, FaMapSigns, FaPhoneAlt, FaPaperPlane, FaLinkedin } from 'react-icons/fa';
+import { SiTailwindcss, SiNextdotjs } from 'react-icons/si'; // Import Tailwind and Next.js icons from 'si'
 import v4 from './assets/v4.mp4';
 import v1 from './assets/v1.mp4';
 import v2 from './assets/v2.mp4';
@@ -100,6 +99,7 @@ const handleSubmit = (e) => {
     { name: 'Python', icon: <FaPython color="#ffbd39" size={50} /> },
     { name: 'Java', icon: <FaJava color="#ffbd39" size={50} /> },
     { name: 'Next.js', icon: <SiNextdotjs color="#ffbd39" size={50} /> },
+    { name: 'Tailwind', icon: <SiTailwindcss color="#ffbd39" size={50} /> },
     { name: 'Node.js', icon: <FaNodeJs color="#ffbd39" size={50} /> },
     { name: 'SQL', icon: <FaDatabase color="#ffbd39" size={50} /> },
     
