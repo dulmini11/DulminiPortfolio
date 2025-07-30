@@ -11,6 +11,7 @@ import v3 from './assets/v3.mp4';
 import v5 from './assets/v5.mp4';
 import v6 from './assets/v6.mp4';
 import v7 from './assets/v7.mp4';
+import v8 from './assets/v8.mp4'
 import java from './images/java.png';
 import sd1 from './images/sd1.png';
 import pic from './images/bg_1.png';
@@ -214,6 +215,13 @@ useEffect(() => {
       description: "Collaborated on a group project, developed a website featuring a cart for wellness products, healthy recipes and exercise guides, promoting a healthier lifestyle with an interactive and user-friendly design.",
       image: null,
       video:v3
+    },
+    {
+      id: 10,
+      title: "WorkshpoX",
+      description: "Built a modern, responsive single‑page web application using React.js and CSS that allows users to browse, search, filter, and sort workshops, view detailed information, register/unregister, submit feedback, and manage their dashboard, using mock data and local state without backend integration.",
+      image: null,
+      video:v8
     }
   ];
 
