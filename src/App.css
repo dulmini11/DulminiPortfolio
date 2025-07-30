@@ -73,6 +73,158 @@
     animation: fadeInUp 1s ease-out forwards;
   }
 
+
+/*----------------------------------------*/
+.code-snippet {
+  position: absolute;
+  color: #ffbd39;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 4px;
+  backdrop-filter: blur(5px);
+  animation: codeFloat 6s ease-in-out infinite;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.code-1 {
+  top: 45%;
+  left: 49%;
+  animation-delay: 5s;
+  color: #ffbd39;
+  text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
+}
+
+.code-2 {
+  top: 45%;
+  right: 5%;
+  animation-delay: 1s;
+  color: #ffbd39;
+  text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
+}
+
+.code-3 {
+  bottom: 25%;
+  left: 73%;
+  animation-delay: 2s;
+  color: #ffbd39;
+  text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
+}
+
+.code-4 {
+  top: 75%;
+  right: 35%;
+  animation-delay: 3s;
+  color: #ffbd39;
+  text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
+}
+
+.code-5 {
+  bottom: 65%;
+  right: 21%;
+  animation-delay: 4s;
+  color: #ffbd39;
+  text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
+}
+
+.code-6 {
+  top: 60%;
+  left: 45%;
+  animation-delay: 5s;
+  color: #ffbd39;
+  text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
+}
+
+.code-7 {
+  top: 90%;
+  right: 1%;
+  animation-delay: 6s;
+  color: #ffbd39;
+  text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
+}
+
+.code-8 {
+  top: 51%;
+  left: 53%;
+  animation-delay: 5s;
+  color: #ffbd39;
+  text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
+}
+
+.code-9 {
+  top: 49%;
+  right: 1%;
+  animation-delay: 1s;
+  color: #ffbd39;
+  text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
+}
+
+.code-10 {
+  bottom: 29%;
+  left: 70%;
+  animation-delay: 2s;
+  color: #ffbd39;
+  text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
+}
+
+.code-11{
+  top: 79%;
+  right: 30%;
+  animation-delay: 3s;
+  color: #ffbd39;
+  text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
+}
+
+.code-12 {
+  bottom: 60%;
+  right: 15%;
+  animation-delay: 4s;
+  color: #ffbd39;
+  text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
+}
+
+.code-13 {
+  top: 97%;
+  right: 7%;
+  animation-delay: 6s;
+  color: #ffbd39;
+  text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
+}
+
+@keyframes codeFloat {
+  0%, 100% { 
+  transform: translateY(0px); 
+  opacity: 0.7;
+  }
+  50% { 
+  transform: translateY(-15px); 
+  opacity: 1;
+  }
+}
+
+@keyframes typewriter {
+  from {
+  width: 0;
+  }
+  to {
+  width: 100%;
+  }
+}
+
+.code-snippet::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 12px;
+  top: 8px;
+  width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typewriter 3s steps(40, end) infinite;
+  color: #ffbd39;
+  border-right: 2px solid #ffbd39;
+  }
+
   .home-section.visible {
   opacity: 1;
   transform: translateY(0);
