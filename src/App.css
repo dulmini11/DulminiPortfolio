@@ -223,7 +223,162 @@
   animation: typewriter 3s steps(40, end) infinite;
   color: #ffbd39;
   border-right: 2px solid #ffbd39;
+}
+
+
+/* Mobile Phones - 480px and below */
+@media (max-width: 480px) {
+  .code-snippet {
+    position: absolute;
+    color: #ffbd39;
+    font-size: 6px;
+    font-weight: bold;
+    padding: 4px 6px;
+    border-radius: 2px;
+    animation: codeFloat 6s ease-in-out infinite;
+    white-space: nowrap;
+    overflow: hidden;
   }
+
+  .code-snippet::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 6px;
+    top: 4px;
+    width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typewriter 3s steps(30, end) infinite;
+    color: #ffbd39;
+    border-right: 1px solid #ffbd39;
+  }
+
+  /* Reduce number of visible snippets for mobile */
+  .code-8, .code-9, .code-10, .code-11, .code-12, .code-13 {
+    display: none;
+  }
+
+  .code-1 { top: 80%; left: 5%; }
+  .code-2 { top: 90%; right: 5%; }
+  .code-3 { bottom: 3%; left: 10%; }
+  .code-4 { top: 99%; right: 10%; }
+  .code-5 { bottom: 5%; right: 5%; }
+  .code-6 { top: 89%; left: 5%; }
+  .code-7 { bottom: 5%; right: 10%; }
+}
+
+/* Small Tablets - 768px and below */
+@media (max-width: 768px) {
+  .code-snippet {
+    position: absolute;
+    color: #ffbd39;
+    font-size: 8px;
+    font-weight: bold;
+    padding: 6px 8px;
+    border-radius: 3px;
+    animation: codeFloat 6s ease-in-out infinite;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .code-snippet::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 8px;
+    top: 6px;
+    width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typewriter 3s steps(35, end) infinite;
+    color: #ffbd39;
+    border-right: 1px solid #ffbd39;
+  }
+
+  /* Hide some snippets for tablets */
+  .code-11, .code-12, .code-13 {
+    display: none;
+  }
+
+  .code-1 { top: 25%; left: 8%; }
+  .code-2 { top: 45%; right: 8%; }
+  .code-3 { bottom: 35%; left: 5%; }
+  .code-4 { top: 65%; right: 6%; }
+  .code-5 { bottom: 1%; right: 10%; }
+  .code-6 { top: 80%; left: 10%; }
+  .code-7 { bottom: 10%; right: 5%; }
+  .code-8 { top: 55%; left: 4%; }
+  .code-9 { top: 35%; right: 5%; }
+  .code-10 { bottom: 45%; left: 3%; }
+}
+
+/* Medium Screens - 1024px and below */
+@media (max-width: 1024px) {
+  .code-snippet {
+    position: absolute;
+    color: #ffbd39;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 4px;
+    animation: codeFloat 6s ease-in-out infinite;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .code-snippet::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 10px;
+    top: 6px;
+    width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typewriter 3s steps(35, end) infinite;
+    color: #ffbd39;
+  }
+
+  .code-1 { top: 70%; left: 1%; }
+  .code-2 { top: 77%; right: 7%; }
+  .code-3 { bottom: 3%; left: 8%; }
+  .code-4 { top: 80%; right: 1%; }
+  .code-5 { bottom: 5%; right: 1%; }
+  .code-6 { top: 74%; left: 5%; }
+  .code-7 { top: 65%; right: 8%; }
+  .code-8 { top: 59%; left: 5%; }
+  .code-9 { top: 90%; right: 3%; }
+  .code-10 { bottom: 5%; left: 5%; }
+  .code-11 { top: 99%; right: 2%; }
+  .code-12 { bottom: 8%; right: 4%; }
+  .code-13 { top: 88%; right: 5%; }
+}
+
+/* Animation adjustments for small screens */
+@media (max-width: 768px) {
+  @keyframes codeFloat {
+    0%, 100% { 
+      transform: translateY(0px); 
+      opacity: 0.6;
+    }
+    50% { 
+      transform: translateY(-10px); 
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  @keyframes codeFloat {
+    0%, 100% { 
+      transform: translateY(0px); 
+      opacity: 0.5;
+    }
+    50% { 
+      transform: translateY(-8px); 
+      opacity: 0.9;
+    }
+  }
+}
+/*----------------------------------------*/
 
   .home-section.visible {
   opacity: 1;
