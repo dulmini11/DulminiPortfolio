@@ -1,4 +1,3 @@
-
 import './App.css';
 import React, { useState, useEffect, useRef } from 'react';
 import emailjs from "@emailjs/browser";
@@ -26,6 +25,15 @@ function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [showName, setShowName] = useState(true);
   const [animatedSections, setAnimatedSections] = useState(new Set());
+
+  // Add the auto-switching effect for intro sections every 2 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowName(prev => !prev);
+    }, 2000); // Change every 2 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
 useEffect(() => {
   const handleScroll = () => {
