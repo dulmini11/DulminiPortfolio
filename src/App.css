@@ -731,7 +731,123 @@
     color: white;
   }
   
-  /* Blog styles */
+  /* View More Button Styles */
+.view-more-container {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px 0;
+}
+
+.view-more-btn {
+  background-color:  #000000;
+  color:  #ffbd39;
+  border: 2px solid #ffbd39;
+  padding: 15px 40px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: #ffbd39;
+}
+
+.view-more-btn:hover {
+  background-color: #000000;
+  border: 2px solid #ffbd39;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 189, 57, 0.4);
+  letter-spacing: 1.5px;
+}
+
+.view-more-btn:active {
+  border: 2px solid #ffbd39;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(255, 189, 57, 0.3);
+}
+
+/* Ripple effect on click */
+.view-more-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: #ffbd3957;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+
+.view-more-btn:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Alternative outlined version (if you prefer) */
+.view-more-btn-outlined {
+  background-color: transparent;
+  color: #ffbd39;
+  border: 2px solid #ffbd39;
+  padding: 13px 38px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(255, 189, 57, 0.1);
+}
+
+.view-more-btn-outlined:hover {
+  background-color: #000000;
+  color: #ffbd39;
+  border: 2px solid #ffbd39;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 189, 57, 0.4);
+  letter-spacing: 1.5px;
+}
+
+.view-more-btn-outlined:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(255, 189, 57, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .view-more-container {
+    margin-top: 30px;
+    padding: 15px 0;
+  }
+  
+  .view-more-btn,
+  .view-more-btn-outlined {
+    padding: 12px 30px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+  
+  .view-more-btn:hover,
+  .view-more-btn-outlined:hover {
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .view-more-btn,
+  .view-more-btn-outlined {
+    padding: 10px 25px;
+    font-size: 13px;
+    border-radius: 25px;
+  }
+}
 /* Section Background */
 /* Timeline Achievement Section */
 #achievements {

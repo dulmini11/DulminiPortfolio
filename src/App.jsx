@@ -25,6 +25,7 @@ function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [showName, setShowName] = useState(true);
   const [animatedSections, setAnimatedSections] = useState(new Set());
+  const [showAllProjects, setShowAllProjects] = useState(false);
 
   // Add the auto-switching effect for intro sections every 2 seconds
   useEffect(() => {
@@ -175,12 +176,11 @@ useEffect(() => {
       video:v1
     },
     {
-      id: 3,
-      title: "QuickRoute E01",
-      description: "Developed the frontend of QuickRoute E01, a web-based bus booking platform for the Southern Expressway. Implemented user-friendly interfaces using React.js, enabling seamless bus booking, real-time bus search and ticket visibility.",
+      id: 6,
+      title: "Zoom to space",
+      description: "Zoom to Space is a React.js web app that makes learning about space fun and interactive. It features a solar system carousel, animated visuals and detailed views of planets and other space objects all designed to simplify space concepts and spark curiosity.",
       image: null,
-      video:v2
-
+      video:v5
     },
     {
       id: 4,
@@ -196,12 +196,20 @@ useEffect(() => {
       image: java,
       video:null
     },
-    {
-      id: 6,
-      title: "Zoom to space",
-      description: "Zoom to Space is a React.js web app that makes learning about space fun and interactive. It features a solar system carousel, animated visuals and detailed views of planets and other space objects all designed to simplify space concepts and spark curiosity.",
+          {
+      id: 10,
+      title: "WorkshpoX",
+      description: "Built a modern, responsive single‑page web application using React.js and CSS that allows users to browse, search, filter, and sort workshops, view detailed information, register/unregister, submit feedback, and manage their dashboard, using mock data and local state without backend integration.",
       image: null,
-      video:v5
+      video:v8
+    },
+    {
+      id: 3,
+      title: "QuickRoute E01",
+      description: "Developed the frontend of QuickRoute E01, a web-based bus booking platform for the Southern Expressway. Implemented user-friendly interfaces using React.js, enabling seamless bus booking, real-time bus search and ticket visibility.",
+      image: null,
+      video:v2
+
     },
     {
       id: 7,
@@ -223,13 +231,6 @@ useEffect(() => {
       description: "Collaborated on a group project, developed a website featuring a cart for wellness products, healthy recipes and exercise guides, promoting a healthier lifestyle with an interactive and user-friendly design.",
       image: null,
       video:v3
-    },
-    {
-      id: 10,
-      title: "WorkshpoX",
-      description: "Built a modern, responsive single‑page web application using React.js and CSS that allows users to browse, search, filter, and sort workshops, view detailed information, register/unregister, submit feedback, and manage their dashboard, using mock data and local state without backend integration.",
-      image: null,
-      video:v8
     }
   ];
 
@@ -471,7 +472,7 @@ useEffect(() => {
             <h1 className="skills-background">Project</h1>
           </div>
           <div className="project-grid"> 
-            {projects.map((project) => (
+            {projects.slice(0, showAllProjects ? projects.length : 9).map((project) => (
               <div key={project.id} className="project-card">
                 {project.image && (
                   <div className="project-image">
@@ -493,6 +494,16 @@ useEffect(() => {
               </div>
             ))}
           </div>
+          {projects.length > 9 && (
+            <div className="view-more-container">
+              <button 
+                className="view-more-btn"
+                onClick={() => setShowAllProjects(!showAllProjects)}
+              >
+                {showAllProjects ? 'View Less' : 'View More'}
+              </button>
+            </div>
+          )}
         </section>
 
         {/* Skills Section */}
