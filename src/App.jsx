@@ -404,6 +404,13 @@ useEffect(() => {
 
         {/* About Section */}
         <section id="about" className="skills-section section-about">
+          <div className="floating-orbs-2">
+            <div className="orb orb-1"></div>
+            <div className="orb orb-2"></div>
+            <div className="orb orb-3"></div>
+            <div className="orb orb-4"></div>
+          </div>
+
           <div className="profile-section two-columns">
             <div className="left-column">
               <div className="skills-header">
@@ -442,7 +449,7 @@ useEffect(() => {
               </div>
               <div className="profile-image2">
                 <div className="project-count">
-                  <span className="count">7</span> Project complete
+                  <span className="count">7 +</span> Project complete
                 </div>
               </div>
             </div>

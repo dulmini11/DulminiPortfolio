@@ -78,7 +78,7 @@
 .code-snippet {
   position: absolute;
   color: #ffbd39;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: bold;
   padding: 8px 12px;
   border-radius: 4px;
@@ -312,6 +312,77 @@
 }
 
 /* Main container for two columns */
+/* ---------------------------------------------- */
+.floating-orbs-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle,  #ffbd39 0%, rgba(187, 178, 16, 0.053) 50%, transparent 100%);
+  filter: blur(1px);
+  animation: float 6s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 120px;
+  height: 120px;
+  top: 5%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 80px;
+  height: 80px;
+  top: 2%;
+  right: 10%;
+  animation-delay: 2s;
+}
+
+.orb-3 {
+  width: 60px;
+  height: 60px;
+  bottom: 40%;
+  left: 30%;
+  animation-delay: 4s;
+}
+
+.orb-4 {
+  width: 100px;
+  height: 100px;
+  bottom: 3%;
+  right: 30%;
+  animation-delay: 1s;
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+    opacity: 0.6;
+  }
+  25% { 
+    transform: translateY(-20px) rotate(90deg); 
+    opacity: 0.8;
+  }
+  50% { 
+    transform: translateY(0px) rotate(180deg); 
+    opacity: 1;
+  }
+  75% { 
+    transform: translateY(20px) rotate(270deg); 
+    opacity: 0.8;
+  }
+}
+/* ---------------------------------------------- */
+
 .two-columns {
   display: flex;
   flex-wrap: wrap;
@@ -383,13 +454,13 @@
 
   .project-count {
     margin: 30px 0;
-    font-size: 18px;
+    font-size: 17px;
     align-items: center;
   }
 
   .count {
     color: #ffbd39;
-    font-size: 24px;
+    font-size: 15px;
     font-weight: bold;
     text-align: left;
   }
