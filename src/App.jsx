@@ -26,6 +26,8 @@ function App() {
   const [showName, setShowName] = useState(true);
   const [animatedSections, setAnimatedSections] = useState(new Set());
   const [showAllProjects, setShowAllProjects] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isClicking, setIsClicking] = useState(false);
 
   // Add the auto-switching effect for intro sections every 2 seconds
   useEffect(() => {
@@ -34,7 +36,27 @@ function App() {
     }, 2000); // Change every 2 seconds
 
     return () => clearInterval(interval);
-  }, []);
+      }, []);
+
+
+    useEffect(() => {
+      const handleMouseMove = (e) => {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+      };
+
+      const handleMouseDown = () => setIsClicking(true);
+      const handleMouseUp = () => setIsClicking(false);
+
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mousedown', handleMouseDown);
+      window.addEventListener('mouseup', handleMouseUp);
+      
+      return () => {
+        window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('mousedown', handleMouseDown);
+        window.removeEventListener('mouseup', handleMouseUp);
+      };
+    }, []);
 
 useEffect(() => {
   const handleScroll = () => {
@@ -319,6 +341,22 @@ useEffect(() => {
       </header>
 
       <main className="main-content">
+        <div className="mouse-cursor-style1">
+          <div
+            className={`cursor-dot ${isClicking ? 'clicking' : ''}`}
+            style={{
+              left: mousePosition.x - 4,
+              top: mousePosition.y - 4,
+            }}
+          />
+          <div
+            className="cursor-ring"
+            style={{
+              left: mousePosition.x - 20,
+              top: mousePosition.y - 20,
+            }}
+          />
+        </div>
         <div className="floating-orbs">
           <div class="code-snippet code-1" data-text="const DulminiPortfolio = () => { return <Portfolio />; };">const DulminiPortfolio = () =&gt; &#123; return &lt;Portfolio /&gt;; &#125;;</div>
           <div class="code-snippet code-2" data-text="useEffect(() => { fetchDulminiProjects(); }, []);">useEffect(() =&gt; &#123; fetchDulminiProjects(); &#125;, []);</div>
