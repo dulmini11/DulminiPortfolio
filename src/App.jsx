@@ -399,7 +399,7 @@ useEffect(() => {
                   <i className="fab fa-linkedin-in"></i>
                 </a>
                 <a
-                  href="/cv.pdf"
+                  href="/CV2.pdf"
                   className="download-cv btn btn-primary py-3 px-3"
                   download="DulminiWanigasekaraCV.pdf"
                 >
@@ -435,7 +435,7 @@ useEffect(() => {
                   <i className="fab fa-linkedin-in"></i>
                 </a>
                 <a
-                  href="/cv.pdf"
+                  href="/CV2.pdf"
                   className="download-cv2 btn btn-primary py-3 px-3"
                   download="DulminiWanigasekaraCV.pdf"
                 >
