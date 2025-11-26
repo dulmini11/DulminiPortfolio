@@ -10,7 +10,8 @@ import v3 from './assets/v3.mp4';
 import v5 from './assets/v5.mp4';
 import v6 from './assets/v6.mp4';
 import v7 from './assets/v7.mp4';
-import v8 from './assets/v8.mp4'
+import v8 from './assets/v8.mp4';
+import v9 from './assets/v9.mp4';
 import java from './images/java.png';
 import sd1 from './images/sd1.png';
 import pic from './images/bg_1.png';
@@ -253,6 +254,13 @@ useEffect(() => {
       description: "Collaborated on a group project, developed a website featuring a cart for wellness products, healthy recipes and exercise guides, promoting a healthier lifestyle with an interactive and user-friendly design.",
       image: null,
       video:v3
+    },
+      {
+      id: 10,
+      title: "CoinWish",
+      description: "Built a modern, responsive single-page web application using React.js and Recharts that allows users to track and manage expenses, browse filtered expenses by category and search terms, sort by date or amount, visualize spending patterns with interactive pie and line charts, manage custom expense categories, perform calculations with an integrated calculator, add/edit/delete expenses with a modal form interface, and toggle between light and dark modes, using local storage for data persistence without backend integration",
+      image: null,
+      video:v9
     }
   ];
 
@@ -525,10 +533,32 @@ useEffect(() => {
                     </video>
                   </div>
                 )}
-                <div className="project-content">
-                  <h3 className="project-title">{project.title}</h3>
-                  <p className="project-description">{project.description}</p>
+
+              <div className="project-content">
+                <h3 className="project-title">{project.title}</h3>
+
+                <p className="project-description">{project.description}</p>
+
+                <div className="social-links minimal" style={{ marginTop: "15px" }}>
+                  <a
+                    href={project.github}
+                    className="github-link minimal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
+
+                  <a
+                    href={project.deploy}
+                    className="linkedin-link minimal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live
+                  </a>
                 </div>
+              </div>
               </div>
             ))}
           </div>

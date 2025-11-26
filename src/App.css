@@ -701,7 +701,25 @@ animation: fadeInUp 1s ease-out forwards;
     color: #ccc;
     line-height: 1.6;
     text-align: left;
+    max-height: 120px;      /* adjust height as you like */
+    overflow-y: auto;       /* scrolling enabled */
+    padding-right: 10px;    /* avoid text hiding behind scrollbar */
   }
+
+  /* Optional — make scrollbar thinner & nicer */
+  .project-description::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .project-description::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+  }
+
+  .project-description::-webkit-scrollbar-track {
+    background: #222;
+  }
+
 
   .skills-section {
     background-color: #000;
