@@ -60,6 +60,94 @@
     border-bottom: 2px solid #ffbd39;
   }
 
+  .nav-popup .nav-link {
+    color: white;               /* default text color */
+    font-size: 16px;
+    text-align: center;         /* center text inside box */
+    background-color: black;    /* black box */
+    border: none;
+    cursor: pointer;
+    padding: 10px 0;            /* height of box */
+    width: 70%;                /* full width of popup */
+    border-radius: 4px;         /* optional rounded corners */
+    position: relative;         /* for underline */
+    left: 30px;
+    display: block;             /* each link on its own row */
+  }
+  .nav-popup .nav-link.active {
+    color: #ffbd39;              /* active text color */
+  }
+
+  .nav-popup .nav-link.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;                /* thickness of underline */
+    background-color: #ffbd39;
+  }
+
+  /* Hamburger menu for mobile */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    background: none;
+    border: none;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 200;
+  }
+
+  .hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+  }
+
+  /* Small popup menu */
+  .nav-popup {
+    display: none;
+    position: absolute;
+    top: 60px;            /* below header */
+    right: 10px;          /* align with hamburger */
+    background: black;    /* dark box */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 150;
+    width: 50%;           /* set popup width to 50% */
+    max-width: 250px;     /* optional max width */
+    min-width: 150px;     /* optional min width */
+  }
+
+  .nav-popup.active {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-popup .nav-link {
+    color: white;
+    font-size: 16px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Mobile styles */
+  @media screen and (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+  }
+
   .section {
     min-height: 100vh;
     padding: 100px 0;

@@ -113,6 +113,7 @@ useEffect(() => {
       });
     }
     setActiveSection(sectionId);
+    setShowMenu(false); 
   };
 
   const form = useRef();
@@ -284,58 +285,37 @@ useEffect(() => {
     subject: '',
     message: ''
   });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
+  const [showMenu, setShowMenu] = useState(false); // For mobile menu toggle
 
   return (
     <div className="portfolio">
-      {/* Header */}
       <header className="header">
         <div className="logo">WWDH</div>
-        <nav className="nav">
-          <button 
-            className={activeSection === 'home' ? 'nav-link active' : 'nav-link'} 
-            onClick={() => scrollToSection('home')}
-          >
-            Home
-          </button>
-          <button 
-            className={activeSection === 'about' ? 'nav-link active' : 'nav-link'} 
-            onClick={() => scrollToSection('about')}
-          >
-            About
-          </button>
-          <button 
-            className={activeSection === 'projects' ? 'nav-link active' : 'nav-link'} 
-            onClick={() => scrollToSection('projects')}
-          >
-            Projects
-          </button>
-          <button 
-            className={activeSection === 'skills' ? 'nav-link active' : 'nav-link'} 
-            onClick={() => scrollToSection('skills')}
-          >
-            Skills
-          </button>
-          <button 
-            className={activeSection === 'blog' ? 'nav-link active' : 'nav-link'} 
-            onClick={() => scrollToSection('blog')}
-          >
-            My Blog
-          </button>
-          <button 
-            className={activeSection === 'contact' ? 'nav-link active' : 'nav-link'} 
-            onClick={() => scrollToSection('contact')}
-          >
-            Contact
-          </button>
-        </nav>
+
+        {/* Hamburger Menu */}
+        <button
+          className="hamburger"
+          onClick={() => setShowMenu(!showMenu)}
+        >
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </button>
+
+        {/* Navigation Popup */}
+        <div className={`nav-popup ${showMenu ? 'active' : ''}`}>
+          <nav className="nav">
+            {['home', 'about', 'projects', 'skills', 'blog', 'contact'].map((section) => (
+              <button
+                key={section}
+                className={activeSection === section ? 'nav-link active' : 'nav-link'}
+                onClick={() => scrollToSection(section)}
+              >
+                {section === 'blog' ? 'My Blog' : section.charAt(0).toUpperCase() + section.slice(1)}
+              </button>
+            ))}
+          </nav>
+        </div>
       </header>
 
       <main className="main-content">
