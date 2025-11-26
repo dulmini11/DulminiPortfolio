@@ -189,21 +189,26 @@ useEffect(() => {
       title: "Story Sound HUB",
       description: "Collaborated on a group project, developing the frontend of an AI-powered book-sharing platform using React.js. Implemented features like book addition, swapping, interactive search filters and an AI chatbot for user assistance, ensuring a seamless and engaging experience.",
       image: null,
+      github: " https://github.com/Visnumaynan/Storysoundhub",
       video:v4
     },
     {
       id: 2,
-      title: "Real Estate Listings Platform",
-      description: "Developed a React.js web app for property search and filtering by type, price, bedrooms, date and location. Built an interactive UI with dynamic listings, favorites management (local storage), responsive design and React tabs for detailed views. Integrated Google Maps .",
-      image: null,
-      video:v1
-    },
-    {
-      id: 6,
       title: "Zoom to space",
       description: "Zoom to Space is a React.js web app that makes learning about space fun and interactive. It features a solar system carousel, animated visuals and detailed views of planets and other space objects all designed to simplify space concepts and spark curiosity.",
       image: null,
+      github: "https://github.com/dulmini11/ZoomToSpace2",
+      deploy: "https://zoom-to-space.vercel.app",
       video:v5
+    },
+    {
+      id: 3,
+      title: "CoinWish",
+      description: "Built a modern, responsive single-page web application using React.js and Recharts that allows users to track and manage expenses, browse filtered expenses by category and search terms, sort by date or amount, visualize spending patterns with interactive pie and line charts, manage custom expense categories, perform calculations with an integrated calculator, add/edit/delete expenses with a modal form interface, and toggle between light and dark modes, using local storage for data persistence without backend integration",
+      image: null,
+      github: "https://github.com/dulmini11/coinwise",
+      deploy: "https://coinwise-v7eg.vercel.app",
+      video:v9
     },
     {
       id: 4,
@@ -212,79 +217,64 @@ useEffect(() => {
       image: sd1,
       video:null
     },
-    {
+        {
       id: 5,
+      title: "WorkshpoX",
+      description: "Built a modern, responsive single‑page web application using React.js and CSS that allows users to browse, search, filter, and sort workshops, view detailed information, register/unregister, submit feedback, and manage their dashboard, using mock data and local state without backend integration.",
+      image: null,
+      github: "https://github.com/dulmini11/workshop-app",
+      deploy: "https://workshop-app-qzum.vercel.app",
+      video:v8
+    },
+    {
+      id: 6,
       title: "Java Student Management System",
       description: "Created a Java-based system to manage student records with features like registration, deletion, search, file storage and report generation. Implemented input validation, file handling and sorting. All functionalities were successfully tested and passed.",
       image: java,
       video:null
     },
-          {
-      id: 10,
-      title: "WorkshpoX",
-      description: "Built a modern, responsive single‑page web application using React.js and CSS that allows users to browse, search, filter, and sort workshops, view detailed information, register/unregister, submit feedback, and manage their dashboard, using mock data and local state without backend integration.",
-      image: null,
-      video:v8
-    },
-    {
-      id: 3,
-      title: "QuickRoute E01",
-      description: "Developed the frontend of QuickRoute E01, a web-based bus booking platform for the Southern Expressway. Implemented user-friendly interfaces using React.js, enabling seamless bus booking, real-time bus search and ticket visibility.",
-      image: null,
-      video:v2
 
-    },
     {
       id: 7,
-      title: "FocusZone",
-      description: 'A productivity web application built with HTML, CSS and JavaScript featuring a Pomodoro study timer, relaxing video backgrounds, and interactive Tic Tac Toe game. Designed with responsive layout for cross-device compatibility, promoting balanced study sessions through focused work periods and mindful break activitie',
+      title: "Real Estate Listings Platform",
+      description: "Developed a React.js web app for property search and filtering by type, price, bedrooms, date and location. Built an interactive UI with dynamic listings, favorites management (local storage), responsive design and React tabs for detailed views. Integrated Google Maps .",
       image: null,
-      video:v7
+      github: "https://github.com/dulmini11/Real-estate-website",
+      video:v1
     },
-    {
+        {
       id: 8,
       title: "Climatrix (Weather website)",
       description: "Climatrix is a modern weather forecasting app built with Next.js, React Query and Tailwind CSS, using real-time data from the OpenWeatherMap API. It provides users with current weather updates, 7-day forecasts, temperature trends and sunrise/sunset times in a clean and responsive layout.",
       image: null,
+      github: "https://github.com/dulmini11/climatrix",
+      deploy: "https://your-deploy-link.com",
       video:v6
     },
-        {
+    {
       id: 9,
+      title: "FocusZone",
+      description: 'A productivity web application built with HTML, CSS and JavaScript featuring a Pomodoro study timer, relaxing video backgrounds, and interactive Tic Tac Toe game. Designed with responsive layout for cross-device compatibility, promoting balanced study sessions through focused work periods and mindful break activitie',
+      image: null,
+      github: "https://github.com/dulmini11/Tic-Tac-Toe",
+      deploy: "https://tictacteokd.netlify.app",
+      video:v7
+    },
+        {
+      id: 10,
+      title: "QuickRoute E01",
+      description: "Developed the frontend of QuickRoute E01, a web-based bus booking platform for the Southern Expressway. Implemented user-friendly interfaces using React.js, enabling seamless bus booking, real-time bus search and ticket visibility.",
+      image: null,
+      github: "https://github.com/dulmini11/BusTicketBooking",
+      video:v2
+
+    },
+        {
+      id: 11,
       title: "Wellness & Well-Being Website",
       description: "Collaborated on a group project, developed a website featuring a cart for wellness products, healthy recipes and exercise guides, promoting a healthier lifestyle with an interactive and user-friendly design.",
       image: null,
       video:v3
-    },
-      {
-      id: 10,
-      title: "CoinWish",
-      description: "Built a modern, responsive single-page web application using React.js and Recharts that allows users to track and manage expenses, browse filtered expenses by category and search terms, sort by date or amount, visualize spending patterns with interactive pie and line charts, manage custom expense categories, perform calculations with an integrated calculator, add/edit/delete expenses with a modal form interface, and toggle between light and dark modes, using local storage for data persistence without backend integration",
-      image: null,
-      video:v9
-    }
-  ];
-
-  const blogPosts = [
-    {
-      id: 1,
-      title: "Getting Started with React",
-      excerpt: "Learn the basics of React and how to create your first component.",
-      date: "April 10, 2025",
-      image: null
-    },
-    {
-      id: 2,
-      title: "My Journey in Software Development",
-      excerpt: "Reflecting on my experiences as an undergraduate in computer science.",
-      date: "March 25, 2025",
-      image: null
-    },
-    {
-      id: 3,
-      title: "Understanding JavaScript Promises",
-      excerpt: "A deep dive into asynchronous JavaScript and how to use Promises effectively.",
-      date: "March 15, 2025",
-      image: null
     }
   ];
 
@@ -533,32 +523,41 @@ useEffect(() => {
                     </video>
                   </div>
                 )}
+                <div className="project-content">
+                  <h3 className="project-title">{project.title}</h3>
+                      <p className="project-description">{project.description}</p>
 
-              <div className="project-content">
-                <h3 className="project-title">{project.title}</h3>
+                      <div
+                        className="social-links project-links"
+                        style={{ marginTop: "15px", gap: "0.2px", justifyContent: "flex-end" }}
+                      >
+                        {/* Show GitHub only if github link exists */}
+                        {project.github && (
+                          <a
+                            href={project.github}
+                            className="github-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ width: "32px", height: "32px", fontSize: "14px" }}
+                          >
+                            <i className="fab fa-github" style={{ fontSize: "23px" }}></i>
+                          </a>
+                        )}
 
-                <p className="project-description">{project.description}</p>
-
-                <div className="social-links minimal" style={{ marginTop: "15px" }}>
-                  <a
-                    href={project.github}
-                    className="github-link minimal"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GitHub
-                  </a>
-
-                  <a
-                    href={project.deploy}
-                    className="linkedin-link minimal"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Live
-                  </a>
+                        {/* Show Deploy only if deploy link exists */}
+                        {project.deploy && (
+                          <a
+                            href={project.deploy}
+                            className="linkedin-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ width: "32px", height: "32px", fontSize: "14px" }}
+                          >
+                            <i className="fas fa-external-link-alt" style={{ fontSize: "15px" }}></i>
+                          </a>
+                        )}
+                    </div>
                 </div>
-              </div>
               </div>
             ))}
           </div>
