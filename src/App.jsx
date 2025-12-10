@@ -188,95 +188,106 @@ useEffect(() => {
     {
       id: 1,
       title: "Story Sound HUB",
-      description: "Collaborated on a group project, developing the frontend of an AI-powered book-sharing platform using React.js. Implemented features like book addition, swapping, interactive search filters and an AI chatbot for user assistance, ensuring a seamless and engaging experience.",
+      description:
+        "A collaborative full-stack group project that combines property listings with a second-hand book marketplace. Includes advanced property filtering, secure authentication, book trading features, AI-powered chatbot assistance, user reviews, purchasing options, and a fully responsive design.",
       image: null,
-      github: " https://github.com/Visnumaynan/Storysoundhub",
-      video:v4
+      github: "https://github.com/Visnumaynan/Storysoundhub",
+      video: v4,
     },
     {
       id: 2,
-      title: "Zoom to space",
-      description: "Zoom to Space is a React.js web app that makes learning about space fun and interactive. It features a solar system carousel, animated visuals and detailed views of planets and other space objects all designed to simplify space concepts and spark curiosity.",
+      title: "Zoom to Space",
+      description:
+        "An interactive astronomy web app featuring a solar system carousel, animated visuals, and detailed information about planets, astronauts, and space objects. Designed to make learning space concepts intuitive and engaging.",
       image: null,
       github: "https://github.com/dulmini11/ZoomToSpace2",
       deploy: "https://zoom-to-space.vercel.app",
-      video:v5
+      video: v5,
     },
     {
       id: 3,
       title: "CoinWish",
-      description: "Built a modern, responsive single-page web application using React.js and Recharts that allows users to track and manage expenses, browse filtered expenses by category and search terms, sort by date or amount, visualize spending patterns with interactive pie and line charts, manage custom expense categories, perform calculations with an integrated calculator, add/edit/delete expenses with a modal form interface, and toggle between light and dark modes, using local storage for data persistence without backend integration",
+      description:
+        "A modern expense tracking application with category filtering, search, sorting, interactive charts, custom categories, an integrated calculator, CRUD with modal forms, dark/light mode, and local storage persistence for offline usage.",
       image: null,
       github: "https://github.com/dulmini11/coinwise",
       deploy: "https://coinwise-v7eg.vercel.app",
-      video:v9
+      video: v9,
     },
     {
       id: 4,
       title: "Scientific Research Data Management System",
-      description: "Developed a sophisticated system for managing and analyzing scientific research data in Python. including structured programming, object-oriented programming (OOP), advanced serialization techniques and graphical user interface (GUI) development.",
+      description:
+        "A structured and scalable Python-based system for managing scientific research data, featuring OOP design, advanced serialization, statistical analysis, robust validation, and a fully integrated graphical user interface for efficient data exploration and management.",
       image: sd1,
-      video:null
+      github: "https://github.com/dulmini11/Scientific-Research-Data-Management-System",
+      video: null,
     },
-        {
+    {
       id: 5,
-      title: "WorkshpoX",
-      description: "Built a modern, responsive single‑page web application using React.js and CSS that allows users to browse, search, filter, and sort workshops, view detailed information, register/unregister, submit feedback, and manage their dashboard, using mock data and local state without backend integration.",
+      title: "WorkshopX",
+      description:
+        "A modern, responsive workshop management platform built with React.js that enables users to explore, search, filter, and sort upcoming workshops with ease. Users can view detailed workshop information, register or unregister for events, submit ratings and feedback, and track their activity through a personal dashboard. The application emphasizes clean UI/UX, smooth interactions, and efficient state management using mock data and client-side logic.",
       image: null,
       github: "https://github.com/dulmini11/workshop-app",
       deploy: "https://workshop-app-qzum.vercel.app",
-      video:v8
+      video: v8,
     },
     {
       id: 6,
       title: "Java Student Management System",
-      description: "Created a Java-based system to manage student records with features like registration, deletion, search, file storage and report generation. Implemented input validation, file handling and sorting. All functionalities were successfully tested and passed.",
+      description:
+        "A comprehensive Java application designed for managing student academic data, featuring validated student registration, efficient search and sorting mechanisms, persistent file-based storage, module-level mark handling, grade computation, and automated report generation. The system applies object-oriented programming principles, custom sorting algorithms, and structured file I/O to ensure data accuracy and reliability.",
       image: java,
-      video:null
+      github: "https://github.com/dulmini11/Java-Student-Management-System",
+      video: null,
     },
-
     {
       id: 7,
       title: "Real Estate Listings Platform",
-      description: "Developed a React.js web app for property search and filtering by type, price, bedrooms, date and location. Built an interactive UI with dynamic listings, favorites management (local storage), responsive design and React tabs for detailed views. Integrated Google Maps .",
+      description:
+        "A property search platform featuring filters for type, price, bedrooms, date, and location. Includes dynamic listings, favorites via local storage, responsive UI, tab-based detail views, and Google Maps integration.",
       image: null,
       github: "https://github.com/dulmini11/Real-estate-website",
-      video:v1
+      video: v1,
     },
-        {
+    {
       id: 8,
-      title: "Climatrix (Weather website)",
-      description: "Climatrix is a modern weather forecasting app built with Next.js, React Query and Tailwind CSS, using real-time data from the OpenWeatherMap API. It provides users with current weather updates, 7-day forecasts, temperature trends and sunrise/sunset times in a clean and responsive layout.",
+      title: "Climatrix (Weather Website)",
+      description:
+        "A real-time weather forecasting application providing current conditions, 7-day forecasts, temperature trends, humidity, wind speed, and sunrise/sunset details in a clean and responsive layout.",
       image: null,
       github: "https://github.com/dulmini11/climatrix",
       deploy: "https://your-deploy-link.com",
-      video:v6
+      video: v6,
     },
     {
       id: 9,
       title: "FocusZone",
-      description: 'A productivity web application built with HTML, CSS and JavaScript featuring a Pomodoro study timer, relaxing video backgrounds, and interactive Tic Tac Toe game. Designed with responsive layout for cross-device compatibility, promoting balanced study sessions through focused work periods and mindful break activitie',
+      description:
+        "A productivity web app featuring a Pomodoro study timer, relaxing video backgrounds, and an interactive Tic Tac Toe game, designed to promote focused work sessions and mindful breaks.",
       image: null,
       github: "https://github.com/dulmini11/Tic-Tac-Toe",
       deploy: "https://tictacteokd.netlify.app",
-      video:v7
+      video: v7,
     },
-        {
+    {
       id: 10,
       title: "QuickRoute E01",
-      description: "Developed the frontend of QuickRoute E01, a web-based bus booking platform for the Southern Expressway. Implemented user-friendly interfaces using React.js, enabling seamless bus booking, real-time bus search and ticket visibility.",
+      description:
+        "Developed the frontend of QuickRoute E01, a web-based bus booking platform for the Southern Expressway. Implemented user-friendly interfaces using React.js, enabling seamless bus booking, real-time bus search and ticket visibility.",
       image: null,
       github: "https://github.com/dulmini11/BusTicketBooking",
-      video:v2
-
+      video: v2,
     },
-        {
+    {
       id: 11,
       title: "Wellness & Well-Being Website",
-      description: "Collaborated on a group project, developed a website featuring a cart for wellness products, healthy recipes and exercise guides, promoting a healthier lifestyle with an interactive and user-friendly design.",
+      description:
+        "A group project promoting healthy living through recipe pages, wellness product carts, and exercise guides, designed with an interactive and user-friendly interface.",
       image: null,
-      video:v3
-    }
+      video: v3,
+    },
   ];
 
   const [formData, setFormData] = useState({
@@ -474,7 +485,7 @@ useEffect(() => {
               </div>
               <div className="profile-image2">
                 <div className="project-count">
-                  <span className="count">7 +</span> Project complete
+                  <span className="count">7+</span> Project complete
                 </div>
               </div>
             </div>
@@ -505,7 +516,9 @@ useEffect(() => {
                 )}
                 <div className="project-content">
                   <h3 className="project-title">{project.title}</h3>
-                      <p className="project-description">{project.description}</p>
+                  <div className="project-description">
+                      <p>{project.description}</p>
+                  </div>
 
                       <div
                         className="social-links project-links"
