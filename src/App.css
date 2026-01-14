@@ -26,8 +26,8 @@
     top: 0;
     background-color: rgba(0, 0, 0, 0.9);
     z-index: 3000;
-    margin-left: -120px;
-    width: 1400px;
+    width: 100%;    
+    margin-left: 0;      
   }
 
   .logo {
@@ -145,20 +145,48 @@
     display: flex;
   }
 
-  /* Mobile styles */
-  @media screen and (max-width: 768px) {
-    .hamburger {
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+
+    .header {
       display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap; /* ❗ stop wrapping */
     }
 
+    /* LOGO LEFT */
+    .logo {
+      font-size: 22px;
+      white-space: nowrap;
+    }
+
+    /* NAV RIGHT — THIS IS THE KEY FIX */
     .desktop-nav {
+      display: flex;
+      flex-direction: row;
+      gap: 18px;
+      margin-left: auto; /* 🔥 pushes nav to right */
+      white-space: nowrap;
+    }
+
+    .nav-link {
+      font-size: 15px;
+    }
+
+    /* Hide mobile stuff */
+    .hamburger {
       display: none;
+    }
+
+    .nav-popup {
+      display: none !important;
     }
   }
 
   .section {
     min-height: 100vh;
-    padding: 100px 0;
+    padding: 10px 0;
     position: relative;
   }
 
@@ -730,7 +758,7 @@
 
   .skills-section {
     background-color: #000;
-    margin-top: 170px;
+    margin-top: 5px;
     text-align: center;
     color: white;
     margin-bottom: 50px;
@@ -738,7 +766,8 @@
   
   .skills-header {
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    margin-top: 100px;
   }
   
   .skills-title {
