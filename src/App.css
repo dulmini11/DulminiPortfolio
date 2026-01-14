@@ -141,10 +141,18 @@
     cursor: pointer;
   }
 
+  .desktop-nav {
+    display: flex;
+  }
+
   /* Mobile styles */
   @media screen and (max-width: 768px) {
     .hamburger {
       display: flex;
+    }
+
+    .desktop-nav {
+      display: none;
     }
   }
 
@@ -206,119 +214,76 @@
   /*----------------------------------------*/
   .code-snippet {
     position: absolute;
-    color: #ffbd39;
-    font-size: 9px;
+    color: #252525;
+    font-size: 6px;
     font-weight: bold;
     padding: 8px 12px;
     border-radius: 4px;
     backdrop-filter: blur(5px);
-    animation: codeFloat 6s ease-in-out infinite;
+    animation: codeFloat 10s ease-in-out infinite;
     white-space: nowrap;
     overflow: hidden;
+    text-shadow: 0 0 10px rgb(59, 59, 59);
   }
 
   .code-1 {
     top: 45%;
-    left: 49%;
+    left: 56%;
     animation-delay: 5s;
-    color: #ffbd39;
-    text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
   }
 
   .code-2 {
-    top: 45%;
-    right: 5%;
-    animation-delay: 1s;
-    color: #ffbd39;
-    text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
+    top: 46%;
+    right: 17%;
+    animation-delay: 3s;
   }
 
   .code-3 {
     bottom: 25%;
     left: 73%;
-    animation-delay: 2s;
-    color: #ffbd39;
-    text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
+    animation-delay: 4s;
   }
 
   .code-4 {
     top: 75%;
     right: 35%;
     animation-delay: 3s;
-    color: #ffbd39;
-    text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
   }
 
   .code-5 {
-    bottom: 65%;
-    right: 21%;
+    bottom: 28%;
+    right: 31%;
     animation-delay: 4s;
-    color: #ffbd39;
-    text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
   }
 
   .code-6 {
-    top: 60%;
-    left: 45%;
-    animation-delay: 5s;
-    color: #ffbd39;
-    text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
-  }
-
-  .code-7 {
-    top: 90%;
-    right: 1%;
-    animation-delay: 6s;
-    color: #ffbd39;
-    text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
-  }
-
-  .code-8 {
     top: 51%;
     left: 53%;
     animation-delay: 5s;
-    color: #ffbd39;
-    text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
   }
 
-  .code-9 {
-    top: 49%;
-    right: 1%;
+  .code-7 {
+    top: 52%;
+    right: 15%;
     animation-delay: 1s;
-    color: #ffbd39;
-    text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
   }
 
-  .code-10 {
+  .code-8 {
     bottom: 29%;
-    left: 70%;
-    animation-delay: 2s;
-    color: #ffbd39;
-    text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
+    left: 73%;
+    animation-delay: 6s;
   }
 
-  .code-11{
+  .code-9{
     top: 79%;
     right: 30%;
     animation-delay: 3s;
-    color: #ffbd39;
-    text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
   }
 
-  .code-12 {
-    bottom: 60%;
+  .code-10{
+    bottom: 55%;
     right: 15%;
-    animation-delay: 4s;
-    color: #ffbd39;
-    text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
-  }
-
-  .code-13 {
-    top: 97%;
-    right: 7%;
     animation-delay: 6s;
-    color: #ffbd39;
-    text-shadow: 0 0 10px rgba(255, 189, 57, 0.5);
   }
 
   @keyframes codeFloat {
@@ -358,15 +323,7 @@
   /* Mobile Phones - 480px and below */
   @media (max-width: 480px) {
     .code-snippet {
-      position: absolute;
-      color: #ffbd39;
-      font-size: 6px;
-      font-weight: bold;
-      padding: 4px 6px;
-      border-radius: 2px;
-      animation: codeFloat 6s ease-in-out infinite;
-      white-space: nowrap;
-      overflow: hidden;
+      display: none;
     }
 
     .code-snippet::before {
@@ -381,19 +338,6 @@
       color: #ffbd39;
       border-right: 1px solid #ffbd39;
     }
-
-    /* Reduce number of visible snippets for mobile */
-    .code-8, .code-9, .code-10, .code-11, .code-12, .code-13 {
-      display: none;
-    }
-
-    .code-1 { top: 80%; left: 5%; }
-    .code-2 { top: 90%; right: 5%; }
-    .code-3 { bottom: 3%; left: 10%; }
-    .code-4 { top: 99%; right: 10%; }
-    .code-5 { bottom: 5%; right: 5%; }
-    .code-6 { top: 89%; left: 5%; }
-    .code-7 { bottom: 5%; right: 10%; }
   }
 
   /* Small Tablets - 768px and below */
@@ -443,55 +387,7 @@
   /* Medium Screens - 1024px and below */
   @media (max-width: 1024px) {
     .code-snippet {
-      position: absolute;
-      color: #ffbd39;
-      font-size: 10px;
-      font-weight: bold;
-      padding: 6px 10px;
-      border-radius: 4px;
-      animation: codeFloat 6s ease-in-out infinite;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-
-    .code-snippet::before {
-      content: attr(data-text);
-      position: absolute;
-      left: 10px;
-      top: 6px;
-      width: 0;
-      white-space: nowrap;
-      overflow: hidden;
-      animation: typewriter 3s steps(35, end) infinite;
-      color: #ffbd39;
-    }
-
-    .code-1 { top: 70%; left: 1%; }
-    .code-2 { top: 77%; right: 7%; }
-    .code-3 { bottom: 3%; left: 8%; }
-    .code-4 { top: 80%; right: 1%; }
-    .code-5 { bottom: 5%; right: 1%; }
-    .code-6 { top: 74%; left: 5%; }
-    .code-7 { top: 65%; right: 8%; }
-    .code-8 { top: 59%; left: 5%; }
-    .code-9 { top: 90%; right: 3%; }
-    .code-10 { bottom: 5%; left: 5%; }
-    .code-11 { top: 99%; right: 2%; }
-    .code-12 { bottom: 8%; right: 4%; }
-    .code-13 { top: 88%; right: 5%; }
-  }
-
-  /* Animation adjustments for small screens */
-  @media (max-width: 768px) {
-    @keyframes codeFloat {
-      0%, 100% { 
-        transform: translateY(0px); 
-        opacity: 0.6;
-      }
-      50% { 
-        transform: translateY(-10px); 
-        opacity: 1;
-      }
+      display: none;
     }
   }
 

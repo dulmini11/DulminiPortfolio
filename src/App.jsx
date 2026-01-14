@@ -303,7 +303,22 @@ useEffect(() => {
       <header className="header">
         <div className="logo">WWDH</div>
 
-        {/* Hamburger Menu */}
+        {/* Desktop Navigation */}
+        <nav className="nav desktop-nav">
+          {['home', 'about', 'projects', 'skills', 'blog', 'contact'].map(section => (
+            <button
+              key={section}
+              className={activeSection === section ? 'nav-link active' : 'nav-link'}
+              onClick={() => scrollToSection(section)}
+            >
+              {section === 'blog'
+                ? 'My Blog'
+                : section.charAt(0).toUpperCase() + section.slice(1)}
+            </button>
+          ))}
+        </nav>
+
+        {/* Hamburger Menu (Mobile only) */}
         <button
           className="hamburger"
           onClick={() => setShowMenu(!showMenu)}
@@ -313,16 +328,21 @@ useEffect(() => {
           <span className="bar"></span>
         </button>
 
-        {/* Navigation Popup */}
+        {/* Mobile Navigation Popup */}
         <div className={`nav-popup ${showMenu ? 'active' : ''}`}>
-          <nav className="nav">
-            {['home', 'about', 'projects', 'skills', 'blog', 'contact'].map((section) => (
+          <nav className="nav mobile-nav">
+            {['home', 'about', 'projects', 'skills', 'blog', 'contact'].map(section => (
               <button
                 key={section}
                 className={activeSection === section ? 'nav-link active' : 'nav-link'}
-                onClick={() => scrollToSection(section)}
+                onClick={() => {
+                  scrollToSection(section);
+                  setShowMenu(false);
+                }}
               >
-                {section === 'blog' ? 'My Blog' : section.charAt(0).toUpperCase() + section.slice(1)}
+                {section === 'blog'
+                  ? 'My Blog'
+                  : section.charAt(0).toUpperCase() + section.slice(1)}
               </button>
             ))}
           </nav>
@@ -351,15 +371,12 @@ useEffect(() => {
           <div class="code-snippet code-2" data-text="useEffect(() => { fetchDulminiProjects(); }, []);">useEffect(() =&gt; &#123; fetchDulminiProjects(); &#125;, []);</div>
           <div class="code-snippet code-3" data-text="public class DulminiProject { private String title; }">public class DulminiProject &#123; private String title; &#125;</div>
           <div class="code-snippet code-4" data-text="def dulmini_portfolio(): return render_template('portfolio.html')">def dulmini_portfolio(): return render_template(&apos;portfolio.html&apos;)</div>
-          <div class="code-snippet code-5" data-text="SELECT * FROM dulmini_projects WHERE status = 'completed';">SELECT * FROM dulmini_projects WHERE status = &apos;completed&apos;;</div>
-          <div class="code-snippet code-6" data-text="const projects = await getDulminiProjects();">const projects = await getDulminiProjects();</div>
-          <div class="code-snippet code-7" data-text="<DulminiHeader logo='logo.png' theme='dark' />">&lt;DulminiHeader logo=&apos;logo.png&apos; theme=&apos;dark&apos; /&gt;</div>
-          <div class="code-snippet code-8" data-text="@Entity public class Portfolio { @Id private Long id; }">@Entity public class Portfolio &#123; @Id private Long id; &#125;</div>
-          <div class="code-snippet code-9" data-text="class DulminiAPI(APIView): def get(self, request):">class DulminiAPI(APIView): def get(self, request):</div>
-          <div class="code-snippet code-10" data-text="CREATE TABLE dulmini_skills (id INT, skill_name VARCHAR(100));">CREATE TABLE dulmini_skills (id INT, skill_name VARCHAR(100));</div>
-          <div class="code-snippet code-11" data-text="document.querySelector('.dulmini-nav').addEventListener('click', handler);">document.querySelector(&apos;.dulmini-nav&apos;).addEventListener(&apos;click&apos;, handler);</div>
-          <div class="code-snippet code-12" data-text="@RestController @RequestMapping('/api/dulmini')">@RestController @RequestMapping(&apos;/api/dulmini&apos;)</div>
-          <div class="code-snippet code-13" data-text="// Dulmini's coding philosophy: Clean code, great UX">// Dulmini&apos;s coding philosophy: Clean code, great UX</div>
+          <div class="code-snippet code-5" data-text="SELECT * FROM dulmini_projects WHERE featured = true;">SELECT * FROM dulmini_projects WHERE featured = true;</div>
+          <div class="code-snippet code-6" data-text="@Entity public class Portfolio { @Id private Long id; }">@Entity public class Portfolio &#123; @Id private Long id; &#125;</div>
+          <div class="code-snippet code-7" data-text="class DulminiAPI(APIView): def get(self, request):">class DulminiAPI(APIView): def get(self, request):</div>
+          <div class="code-snippet code-8" data-text="CREATE TABLE dulmini_skills (id INT, skill_name VARCHAR(100));">CREATE TABLE dulmini_skills (id INT, skill_name VARCHAR(100));</div>
+          <div class="code-snippet code-9" data-text="document.querySelector('.dulmini-nav').addEventListener('click', handler);">document.querySelector(&apos;.dulmini-nav&apos;).addEventListener(&apos;click&apos;, handler);</div>
+          <div class="code-snippet code-10" data-text="@RestController @RequestMapping('/api/dulmini')">@RestController @RequestMapping(&apos;/api/dulmini&apos;)</div>
         </div>
 
         {/* Home Section with Complete Page Swapping */}
