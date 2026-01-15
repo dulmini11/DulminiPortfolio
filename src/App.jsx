@@ -466,7 +466,7 @@ useEffect(() => {
 
           <div className="profile-section two-columns">
             <div className="left-column">
-              <div className="skills-header">
+              <div className="about-header">
                 <h2 className="skills-title">About Me</h2>
                 <h1 className="skills-background">About</h1>
               </div>
