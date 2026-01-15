@@ -39,61 +39,59 @@ function App() {
     return () => clearInterval(interval);
       }, []);
 
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
 
-    useEffect(() => {
-      const handleMouseMove = (e) => {
-        setMousePosition({ x: e.clientX, y: e.clientY });
-      };
-
-      const handleMouseDown = () => setIsClicking(true);
-      const handleMouseUp = () => setIsClicking(false);
-
+    const handleMouseDown = () => setIsClicking(true);
+    const handleMouseUp = () => setIsClicking(false);
       window.addEventListener('mousemove', handleMouseMove);
       window.addEventListener('mousedown', handleMouseDown);
       window.addEventListener('mouseup', handleMouseUp);
       
-      return () => {
-        window.removeEventListener('mousemove', handleMouseMove);
-        window.removeEventListener('mousedown', handleMouseDown);
-        window.removeEventListener('mouseup', handleMouseUp);
-      };
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
     }, []);
 
-useEffect(() => {
-  const handleScroll = () => {
-    const sections = ['home', 'about', 'projects', 'skills', 'blog', 'contact'];    
-    const scrollPosition = window.scrollY;
-    const windowHeight = window.innerHeight;
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'about', 'projects', 'skills', 'blog', 'contact'];    
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
 
-    sections.forEach(sectionId => {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        const sectionTop = section.offsetTop - 100;
-        const sectionBottom = sectionTop + section.offsetHeight;
-        
-        // Check if section is in view for active navigation
-        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-          setActiveSection(sectionId);
-        }
+      sections.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const sectionTop = section.offsetTop - 100;
+          const sectionBottom = sectionTop + section.offsetHeight;
+          
+          // Check if section is in view for active navigation
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            setActiveSection(sectionId);
+          }
 
-        // Check if section is in viewport for animations
-        const sectionRect = section.getBoundingClientRect();
-        const isInViewport = sectionRect.top < windowHeight * 0.8 && sectionRect.bottom > 0;
-        
-        if (isInViewport && !animatedSections.has(sectionId)) {
-          // Add animation
-          setAnimatedSections(prev => new Set([...prev, sectionId]));
-          section.classList.add('animate-in');
-        } else if (!isInViewport && animatedSections.has(sectionId)) {
-          // Remove animation when section leaves viewport
-          setAnimatedSections(prev => {
-            const newSet = new Set(prev);
-            newSet.delete(sectionId);
-            return newSet;
-          });
-          section.classList.remove('animate-in');
+          // Check if section is in viewport for animations
+          const sectionRect = section.getBoundingClientRect();
+          const isInViewport = sectionRect.top < windowHeight * 0.8 && sectionRect.bottom > 0;
+          
+          if (isInViewport && !animatedSections.has(sectionId)) {
+            // Add animation
+            setAnimatedSections(prev => new Set([...prev, sectionId]));
+            section.classList.add('animate-in');
+          } else if (!isInViewport && animatedSections.has(sectionId)) {
+            // Remove animation when section leaves viewport
+            setAnimatedSections(prev => {
+              const newSet = new Set(prev);
+              newSet.delete(sectionId);
+              return newSet;
+            });
+            section.classList.remove('animate-in');
+          }
         }
-      }
     });
   };
 
@@ -102,7 +100,7 @@ useEffect(() => {
   handleScroll();
   
   return () => window.removeEventListener('scroll', handleScroll);
-}, [animatedSections]);
+  }, [animatedSections]);
 
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
@@ -118,25 +116,46 @@ useEffect(() => {
 
   const form = useRef();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    const handleSubmit = (e) => {
+      e.preventDefault();
 
-    emailjs.sendForm(
-      'service_0oycc1y',
-      'template_hjjfjc1',
-      form.current,
-      'userdhww'
-    )
-    .then((response) => {
-      console.log('SUCCESS!', response.status, response.text);
-      alert("Message sent successfully!");
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    })
-    .catch((err) => {
-      console.error('FAILED...', err);
-      alert("Message failed to send.");
-    });
-  };
+      emailjs.sendForm(
+        'service_0oycc1y',
+        'template_hjjfjc1',
+        form.current,
+        'userdhww'
+      )
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        alert("Message sent successfully!");
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      })
+      .catch((err) => {
+        console.error('FAILED...', err);
+        alert("Message failed to send.");
+      });
+    };
+
+    const [limit, setLimit] = useState(9);
+
+  useEffect(() => {
+    const updateLimit = () => {
+      const width = window.innerWidth;
+
+      if (width <= 480) {
+        setLimit(5);        // mobile
+      } else if (width <= 1024) {
+        setLimit(6);        // tablet
+      } else {
+        setLimit(9);        // desktop
+      }
+    };
+
+    updateLimit(); // initial
+    window.addEventListener("resize", updateLimit);
+
+    return () => window.removeEventListener("resize", updateLimit);
+  }, []);
 
   const skills = [
     { name: 'HTML', icon: <FaHtml5 color="#ffbd39" size={50} /> },
@@ -157,30 +176,25 @@ useEffect(() => {
       label: 'ADDRESS',
       icon: <FaMapSigns size={30} color="#ffbd39" />,
       info: 'Maharagama Colombo',
+      link: 'https://www.google.com/maps/search/Maharagama+Colombo'
     },
     {
       label: 'CONTACT NUMBER',
       icon: <FaPhoneAlt size={30} color="#ffbd39" />,
       info: '+94 76 912 1952',
+      link: 'tel:+94769121952'
     },
     {
       label: 'EMAIL ADDRESS',
       icon: <FaPaperPlane size={30} color="#ffbd39" />,
       info: 'dulminihw@gmail.com',
+      link: 'mailto:dulminihw@gmail.com'
     },
     {
       label: 'LINKEDIN',
       icon: <FaLinkedin size={30} color="#ffbd39" />,
-      info: (
-        <a
-          href="https://www.linkedin.com/in/dulmini-wanigasekara-756740333/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="contact-info"
-        >
-          Dulmini Wanigasekara
-        </a>
-      ),
+      info: 'Dulmini Wanigasekara',
+      link: 'https://www.linkedin.com/in/dulmini-wanigasekara-756740333/'
     },
   ];
 
@@ -516,7 +530,7 @@ useEffect(() => {
             <h1 className="skills-background">Project</h1>
           </div>
           <div className="project-grid"> 
-            {projects.slice(0, showAllProjects ? projects.length : 9).map((project) => (
+            {projects .slice(0, showAllProjects ? projects.length : limit) .map((project) => (
               <div key={project.id} className="project-card">
                 {project.image && (
                   <div className="project-image">
@@ -667,7 +681,13 @@ useEffect(() => {
           <div className="contact-content">
             <div className="contact-grid">
               {contactDetails.map((item, index) => (
-                <div key={index} className="contact-card">
+                <div
+                  key={index}
+                  className="contact-card"
+                  onClick={() => window.open(item.link, '_blank')}
+                  role="button"
+                  tabIndex={0}
+                >
                   <div className="contact-icon">{item.icon}</div>
                   <p className="contact-label">{item.label}</p>
                   <p className="contact-info">{item.info}</p>

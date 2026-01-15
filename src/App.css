@@ -1217,6 +1217,7 @@
       width: calc(100% - 80px);
       margin-left: 80px;
       margin-right: 0;
+      margin-top:20px
     }
     
     .achievement-item:nth-child(odd) .achievement-card::after,
