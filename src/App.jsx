@@ -3,30 +3,18 @@ import React, { useState, useEffect, useRef } from 'react';
 import emailjs from "@emailjs/browser";
 import { FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaJava, FaDatabase, FaMapSigns, FaPhoneAlt, FaPaperPlane, FaLinkedin } from 'react-icons/fa';
 import { SiTailwindcss, SiNextdotjs } from 'react-icons/si'; // Import Tailwind and Next.js icons from 'si'
-import v4 from './assets/v4.mp4';
-import v1 from './assets/v1.mp4';
-import v2 from './assets/v2.mp4';
-import v3 from './assets/v3.mp4';
-import v5 from './assets/v5.mp4';
-import v6 from './assets/v6.mp4';
-import v7 from './assets/v7.mp4';
-import v8 from './assets/v8.mp4';
-import v9 from './assets/v9.mp4';
-import java from './images/java.png';
-import sd1 from './images/sd1.png';
 import pic from './images/bg_1.png';
 import Malaysia from './images/karate.jpeg';
 import football from './images/foodball.jpeg';
 import school from './images/school.jpg';
 import karatee from './images/karate2.jpg';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-
+import ProjectsPage from './ProjectsPage'; // Import the separate ProjectsPage component
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [showName, setShowName] = useState(true);
   const [animatedSections, setAnimatedSections] = useState(new Set());
-  const [showAllProjects, setShowAllProjects] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isClicking, setIsClicking] = useState(false);
 
@@ -147,7 +135,7 @@ function App() {
       } else if (width <= 1024) {
         setLimit(6);        // tablet
       } else {
-        setLimit(9);        // desktop
+        setLimit(6);        // desktop
       }
     };
 
@@ -195,112 +183,6 @@ function App() {
       icon: <FaLinkedin size={30} color="#ffbd39" />,
       info: 'Dulmini Wanigasekara',
       link: 'https://www.linkedin.com/in/dulmini-wanigasekara-756740333/'
-    },
-  ];
-
-  const projects = [
-    {
-      id: 1,
-      title: "Story Sound HUB",
-      description:
-        "A collaborative full-stack group project that combines property listings with a second-hand book marketplace. Includes advanced property filtering, secure authentication, book trading features, AI-powered chatbot assistance, user reviews, purchasing options, and a fully responsive design.",
-      image: null,
-      github: "https://github.com/Visnumaynan/Storysoundhub",
-      video: v4,
-    },
-    {
-      id: 2,
-      title: "Zoom to Space",
-      description:
-        "An interactive astronomy web app featuring a solar system carousel, animated visuals, and detailed information about planets, astronauts, and space objects. Designed to make learning space concepts intuitive and engaging.",
-      image: null,
-      github: "https://github.com/dulmini11/ZoomToSpace2",
-      deploy: "https://zoom-to-space.vercel.app",
-      video: v5,
-    },
-    {
-      id: 3,
-      title: "CoinWish",
-      description:
-        "A modern expense tracking application with category filtering, search, sorting, interactive charts, custom categories, an integrated calculator, CRUD with modal forms, dark/light mode, and local storage persistence for offline usage.",
-      image: null,
-      github: "https://github.com/dulmini11/coinwise",
-      deploy: "https://coinwise-v7eg.vercel.app",
-      video: v9,
-    },
-    {
-      id: 4,
-      title: "Scientific Research Data Management System",
-      description:
-        "A structured and scalable Python-based system for managing scientific research data, featuring OOP design, advanced serialization, statistical analysis, robust validation, and a fully integrated graphical user interface for efficient data exploration and management.",
-      image: sd1,
-      github: "https://github.com/dulmini11/Scientific-Research-Data-Management-System",
-      video: null,
-    },
-    {
-      id: 5,
-      title: "WorkshopX",
-      description:
-        "A modern, responsive workshop management platform built with React.js that enables users to explore, search, filter, and sort upcoming workshops with ease. Users can view detailed workshop information, register or unregister for events, submit ratings and feedback, and track their activity through a personal dashboard. The application emphasizes clean UI/UX, smooth interactions, and efficient state management using mock data and client-side logic.",
-      image: null,
-      github: "https://github.com/dulmini11/workshop-app",
-      deploy: "https://workshop-app-qzum.vercel.app",
-      video: v8,
-    },
-    {
-      id: 6,
-      title: "Java Student Management System",
-      description:
-        "A comprehensive Java application designed for managing student academic data, featuring validated student registration, efficient search and sorting mechanisms, persistent file-based storage, module-level mark handling, grade computation, and automated report generation. The system applies object-oriented programming principles, custom sorting algorithms, and structured file I/O to ensure data accuracy and reliability.",
-      image: java,
-      github: "https://github.com/dulmini11/Java-Student-Management-System",
-      video: null,
-    },
-    {
-      id: 7,
-      title: "Real Estate Listings Platform",
-      description:
-        "A property search platform featuring filters for type, price, bedrooms, date, and location. Includes dynamic listings, favorites via local storage, responsive UI, tab-based detail views, and Google Maps integration.",
-      image: null,
-      github: "https://github.com/dulmini11/Real-estate-website",
-      video: v1,
-    },
-    {
-      id: 8,
-      title: "Climatrix (Weather Website)",
-      description:
-        "A real-time weather forecasting application providing current conditions, 7-day forecasts, temperature trends, humidity, wind speed, and sunrise/sunset details in a clean and responsive layout.",
-      image: null,
-      github: "https://github.com/dulmini11/climatrix",
-      deploy: "https://your-deploy-link.com",
-      video: v6,
-    },
-    {
-      id: 9,
-      title: "FocusZone",
-      description:
-        "A productivity web app featuring a Pomodoro study timer, relaxing video backgrounds, and an interactive Tic Tac Toe game, designed to promote focused work sessions and mindful breaks.",
-      image: null,
-      github: "https://github.com/dulmini11/Tic-Tac-Toe",
-      deploy: "https://tictacteokd.netlify.app",
-      video: v7,
-    },
-    {
-      id: 10,
-      title: "QuickRoute E01",
-      description:
-        "Developed the frontend of QuickRoute E01, a web-based bus booking platform for the Southern Expressway. Implemented user-friendly interfaces using React.js, enabling seamless bus booking, real-time bus search and ticket visibility.",
-      image: null,
-      github: "https://github.com/dulmini11/BusTicketBooking",
-      video: v2,
-    },
-    {
-      id: 11,
-      title: "Wellness & Well-Being Website",
-      description:
-        "A group project promoting healthy living through recipe pages, wellness product carts, and exercise guides, designed with an interactive and user-friendly interface.",
-      image: null,
-      video: v3,
     },
   ];
 
@@ -523,79 +405,8 @@ function App() {
           </div>
         </section>
 
-        {/* Projects Section */}
-        <section id='projects' className='skills-section section-projects'>
-          <div className="skills-header">
-            <h2 className="skills-title">My Project</h2>
-            <h1 className="skills-background">Project</h1>
-          </div>
-          <div className="project-grid"> 
-            {projects .slice(0, showAllProjects ? projects.length : limit) .map((project) => (
-              <div key={project.id} className="project-card">
-                {project.image && (
-                  <div className="project-image">
-                    <img src={project.image} alt={project.title} />
-                  </div>
-                )}
-                {project.video && (
-                  <div className="project-video">
-                    <video controls width="100%" style={{ borderRadius: '10px'}}>
-                      <source src={project.video} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                )}
-                <div className="project-content">
-                  <h3 className="project-title">{project.title}</h3>
-                  <div className="project-description">
-                      <p>{project.description}</p>
-                  </div>
-
-                      <div
-                        className="social-links project-links"
-                        style={{ marginTop: "15px", gap: "0.2px", justifyContent: "flex-end" }}
-                      >
-                        {/* Show GitHub only if github link exists */}
-                        {project.github && (
-                          <a
-                            href={project.github}
-                            className="github-link"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{ width: "32px", height: "32px", fontSize: "14px" }}
-                          >
-                            <i className="fab fa-github" style={{ fontSize: "23px" }}></i>
-                          </a>
-                        )}
-
-                        {/* Show Deploy only if deploy link exists */}
-                        {project.deploy && (
-                          <a
-                            href={project.deploy}
-                            className="linkedin-link"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{ width: "32px", height: "32px", fontSize: "14px" }}
-                          >
-                            <i className="fas fa-external-link-alt" style={{ fontSize: "15px" }}></i>
-                          </a>
-                        )}
-                    </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          {projects.length > 9 && (
-            <div className="view-more-container">
-              <button 
-                className="view-more-btn"
-                onClick={() => setShowAllProjects(!showAllProjects)}
-              >
-                {showAllProjects ? 'View Less' : 'View More'}
-              </button>
-            </div>
-          )}
-        </section>
+        {/* Projects Section - Now imported from separate file */}
+        <ProjectsPage />
 
         {/* Skills Section */}
         <section id='skills' className="skills-section section-skills">
