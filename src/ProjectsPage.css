@@ -151,8 +151,7 @@
 
 .project-video-wrapper {
   width: 100%;
-  height: 160px;
-  background: #000;
+  height: 100%;
   border-radius: 8px;
   object-fit: cover;
   overflow: hidden;
@@ -165,13 +164,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain; /* Changed from cover to contain for better quality */
-  background: #00000000;
   border-radius: 8px;
-}
-
-/* Video controls styling */
-.project-video-wrapper video::-webkit-media-controls-panel {
-  background: rgba(0, 0, 0, 0.7);
 }
 
 .project-video-wrapper video::-webkit-media-controls-play-button {
@@ -185,13 +178,12 @@
 
 .project-image-wrapper {
   width: 100%;
-  height: 200px;
+  height: 140px;
   overflow: hidden;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.2);
 }
 
 .project-img {

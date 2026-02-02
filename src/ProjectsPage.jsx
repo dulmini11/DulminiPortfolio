@@ -11,6 +11,7 @@ import v6 from './assets/v6.mp4';
 import v7 from './assets/v7.mp4';
 import v8 from './assets/v8.mp4';
 import v9 from './assets/v9.mp4';
+import v10 from './assets/v10.mp4';
 import java from './images/java.png';
 import sd1 from './images/sd1.png';
 
@@ -66,7 +67,7 @@ function ProjectsPage() {
       category: "fullstack",
       date: "Jun 2025",
       type: "Individual Project",
-      techStack: ["React", "JavaScript", "CSS"],
+      techStack: ["React", "JavaScript", "Express.js", "Node.js", "MySQL"],
     },
     {
       id: 3,
@@ -74,7 +75,7 @@ function ProjectsPage() {
       description: "A full-stack web application for note management, featuring CRUD operations, categorization with tags, archive/trash functionality, checklists, password-protected notes, voice-to-text conversion, and a built-in calendar view. Offers a responsive, user-friendly interface with filtering, sorting, and advanced organizational capabilities.",
       image: null,
       github: "https://github.com/dulmini11/NotesApp",
-      video: v5,
+      video: v10,
       category: "fullstack",
       date: "Jan 2026",
       type: "Individual Project",
