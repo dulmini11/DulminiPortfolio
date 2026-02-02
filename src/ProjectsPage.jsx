@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaJava, FaNodeJs, FaDatabase, FaLaravel } from 'react-icons/fa';
 import { SiTailwindcss, SiNextdotjs, SiTypescript } from 'react-icons/si';
+import './ProjectsPage.css';
 import v4 from './assets/v4.mp4';
 import v1 from './assets/v1.mp4';
 import v2 from './assets/v2.mp4';
