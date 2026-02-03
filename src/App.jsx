@@ -294,16 +294,16 @@ function App() {
           />
         </div>
         <div className="floating-orbs">
-          <div className="code-snippet code-1">const DulminiPortfolio = () =&gt; &#123; return &lt;Portfolio /&gt;; &#125;;</div>
-          <div className="code-snippet code-2">useEffect(() =&gt; &#123; fetchDulminiProjects(); &#125;, []);</div>
-          <div className="code-snippet code-3">public class DulminiProject &#123; private String title; &#125;</div>
-          <div className="code-snippet code-4">def dulmini_portfolio(): return render_template(&apos;portfolio.html&apos;)</div>
-          <div className="code-snippet code-5">SELECT * FROM dulmini_projects WHERE featured = true;</div>
-          <div className="code-snippet code-6">@Entity public class Portfolio &#123; @Id private Long id; &#125;</div>
-          <div className="code-snippet code-7">class DulminiAPI(APIView): def get(self, request):</div>
-          <div className="code-snippet code-8">CREATE TABLE dulmini_skills (id INT, skill_name VARCHAR(100));</div>
-          <div className="code-snippet code-9">document.querySelector(&apos;.dulmini-nav&apos;).addEventListener(&apos;click&apos;, handler);</div>
-          <div className="code-snippet code-10">@RestController @RequestMapping(&apos;/api/dulmini&apos;)</div>
+          <div class="code-snippet code-1" data-text="const DulminiPortfolio = () => { return <Portfolio />; };">const DulminiPortfolio = () =&gt; &#123; return &lt;Portfolio /&gt;; &#125;;</div>
+          <div class="code-snippet code-2" data-text="useEffect(() => { fetchDulminiProjects(); }, []);">useEffect(() =&gt; &#123; fetchDulminiProjects(); &#125;, []);</div>
+          <div class="code-snippet code-3" data-text="public class DulminiProject { private String title; }">public class DulminiProject &#123; private String title; &#125;</div>
+          <div class="code-snippet code-4" data-text="def dulmini_portfolio(): return render_template('portfolio.html')">def dulmini_portfolio(): return render_template(&apos;portfolio.html&apos;)</div>
+          <div class="code-snippet code-5" data-text="SELECT * FROM dulmini_projects WHERE featured = true;">SELECT * FROM dulmini_projects WHERE featured = true;</div>
+          <div class="code-snippet code-6" data-text="@Entity public class Portfolio { @Id private Long id; }">@Entity public class Portfolio &#123; @Id private Long id; &#125;</div>
+          <div class="code-snippet code-7" data-text="class DulminiAPI(APIView): def get(self, request):">class DulminiAPI(APIView): def get(self, request):</div>
+          <div class="code-snippet code-8" data-text="CREATE TABLE dulmini_skills (id INT, skill_name VARCHAR(100));">CREATE TABLE dulmini_skills (id INT, skill_name VARCHAR(100));</div>
+          <div class="code-snippet code-9" data-text="document.querySelector('.dulmini-nav').addEventListener('click', handler);">document.querySelector(&apos;.dulmini-nav&apos;).addEventListener(&apos;click&apos;, handler);</div>
+          <div class="code-snippet code-10" data-text="@RestController @RequestMapping('/api/dulmini')">@RestController @RequestMapping(&apos;/api/dulmini&apos;)</div>
         </div>
 
         {/* Home Section with Complete Page Swapping */}

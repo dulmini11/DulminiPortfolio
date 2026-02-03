@@ -1736,6 +1736,17 @@
     }
   }
 
+  /* Tablet View Only (768px to 1200px) */
+  @media (min-width: 769px) and (max-width: 1200px) {
+    .timeline-container::before {
+      display: none; /* This removes the central timeline line only in tablet view */
+    }
+    
+    .achievement-item::before {
+      display: none;
+    }
+  }
+
   @media (max-width: 480px) {
     .logo {
       font-size: 20px;
@@ -1893,6 +1904,13 @@
   .section-skills.animate-in .skill-card:nth-child(8) { transition-delay: 0.8s; }
   .section-skills.animate-in .skill-card:nth-child(9) { transition-delay: 0.9s; }
   .section-skills.animate-in .skill-card:nth-child(10) { transition-delay: 1s; }
+  .section-skills.animate-in .skill-card:nth-child(11) { transition-delay: 1.1s; }
+  .section-skills.animate-in .skill-card:nth-child(12) { transition-delay: 1.2s; }
+  .section-skills.animate-in .skill-card:nth-child(13) { transition-delay: 1.3s; }
+  .section-skills.animate-in .skill-card:nth-child(14) { transition-delay: 1.4s; }
+  .section-skills.animate-in .skill-card:nth-child(15) { transition-delay: 1.5s; }
+  .section-skills.animate-in .skill-card:nth-child(16) { transition-delay: 1.6s; }
+  .section-skills.animate-in .skill-card:nth-child(17) { transition-delay: 1.7s; }
 
   /* Blog Section - Flip In Animation */
   .section-blog {
