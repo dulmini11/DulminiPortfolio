@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaJava, FaNodeJs, FaDatabase, FaLaravel } from 'react-icons/fa';
 import { SiTailwindcss, SiNextdotjs, SiTypescript } from 'react-icons/si';
 import './ProjectsPage.css';
@@ -17,8 +17,25 @@ import sd1 from './images/sd1.png';
 
 function ProjectsPage() {
   const [activeTab, setActiveTab] = useState('all');
+  const [selectedTechs, setSelectedTechs] = useState([]);
+  const [showTechDropdown, setShowTechDropdown] = useState(false);
   const [showAllProjects, setShowAllProjects] = useState(false);
+  const dropdownRef = useRef(null);
   
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowTechDropdown(false);
+      }
+    };
+    
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   // Tech icons mapping
   const getTechIcon = (tech) => {
     const iconMap = {
@@ -195,9 +212,30 @@ function ProjectsPage() {
     },
   ];
 
-  const filteredProjects = activeTab === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeTab);
+  // Extract all unique tech from projects
+  const allTech = Array.from(new Set(projects.flatMap(project => project.techStack))).sort();
+  
+  // Categorize tech
+  const programmingLanguages = ['JavaScript', 'TypeScript', 'Python', 'Java', 'HTML', 'CSS'];
+  const frameworksLibraries = ['React', 'Next.js', 'Node.js', 'Express.js', 'Laravel', 'Tailwind'];
+  const databases = ['MySQL', 'SQL'];
+  const otherTech = allTech.filter(tech => 
+    !programmingLanguages.includes(tech) && 
+    !frameworksLibraries.includes(tech) && 
+    !databases.includes(tech)
+  );
+
+  // Filter projects based on category OR selected techs
+  const filteredProjects = projects.filter(project => {
+    // Category filter
+    const categoryMatch = activeTab === 'all' || project.category === activeTab;
+    
+    // Tech filter (if any techs are selected)
+    const techMatch = selectedTechs.length === 0 || 
+      selectedTechs.some(tech => project.techStack.includes(tech));
+    
+    return categoryMatch && techMatch;
+  });
 
   const tabs = [
     { id: 'all', label: 'All Projects' },
@@ -220,6 +258,24 @@ function ProjectsPage() {
     `;
   };
 
+  // Handle tech selection
+  const handleTechToggle = (tech) => {
+    if (selectedTechs.includes(tech)) {
+      setSelectedTechs(selectedTechs.filter(t => t !== tech));
+    } else {
+      setSelectedTechs([...selectedTechs, tech]);
+      // Switch to 'all' tab when selecting a tech filter
+      if (activeTab !== 'all') {
+        setActiveTab('all');
+      }
+    }
+  };
+
+  // Clear all tech filters
+  const clearTechFilters = () => {
+    setSelectedTechs([]);
+  };
+
   return (
     <section id='projects' className='projects-section'>
       <div className="projects-header">
@@ -228,19 +284,218 @@ function ProjectsPage() {
           <h1 className="skills-background">Project</h1>
         </div>
         
-        {/* Navigation Tabs */}
-        <div className="projects-tabs">
-          {tabs.map(tab => (
-            <button
-              key={tab.id}
-              className={`tab-button ${activeTab === tab.id ? 'active' : ''}`}
-              onClick={() => setActiveTab(tab.id)}
-            >
-              {tab.label}
-            </button>
-          ))}
+        {/* Main Navigation Tabs */}
+        <div className="projects-tabs-container">
+          <div className="projects-tabs">
+            {tabs.map(tab => (
+              <button
+                key={tab.id}
+                className={`tab-button ${activeTab === tab.id ? 'active' : ''}`}
+                onClick={() => {
+                  setActiveTab(tab.id);
+                  // Clear tech filters when switching to a category tab
+                  if (tab.id !== 'all') {
+                    setSelectedTechs([]);
+                  }
+                }}
+              >
+                {tab.label}
+              </button>
+            ))}
+            
+            {/* Tech Filter Dropdown */}
+            <div className="tech-filter-dropdown-container" ref={dropdownRef}>
+              <button
+                className={`tab-button ${selectedTechs.length > 0 ? 'active' : ''}`}
+                onClick={() => setShowTechDropdown(!showTechDropdown)}
+              >
+                <i className="fas fa-code"></i>
+                Filter by Tech
+                {selectedTechs.length > 0 && (
+                  <span className="tech-badge">{selectedTechs.length}</span>
+                )}
+                <i className={`fas fa-chevron-${showTechDropdown ? 'up' : 'down'}`}></i>
+              </button>
+              
+              {showTechDropdown && (
+                <div className="tech-dropdown-menu">
+                  <div className="dropdown-header">
+                    <h4>Select Technologies</h4>
+                    <div className="dropdown-actions">
+                      {selectedTechs.length > 0 && (
+                        <button 
+                          className="clear-selection-btn"
+                          onClick={clearTechFilters}
+                        >
+                          Clear
+                        </button>
+                      )}
+                      <button 
+                        className="close-dropdown"
+                        onClick={() => setShowTechDropdown(false)}
+                      >
+                        <i className="fas fa-times"></i>
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <div className="dropdown-categories">
+                    {/* Programming Languages */}
+                    <div className="dropdown-category">
+                      <h5>
+                        <i className="fas fa-laptop-code"></i>
+                        Programming Languages
+                      </h5>
+                      <div className="dropdown-options">
+                        {programmingLanguages
+                          .filter(tech => allTech.includes(tech))
+                          .map(tech => (
+                            <label key={tech} className="tech-option">
+                              <input
+                                type="checkbox"
+                                checked={selectedTechs.includes(tech)}
+                                onChange={() => handleTechToggle(tech)}
+                              />
+                              <span className="tech-option-icon">{getTechIcon(tech)}</span>
+                              <span className="tech-option-name">{tech}</span>
+                              <span className="tech-option-count">
+                                ({projects.filter(p => p.techStack.includes(tech)).length})
+                              </span>
+                            </label>
+                          ))}
+                      </div>
+                    </div>
+                    
+                    {/* Frameworks & Libraries */}
+                    <div className="dropdown-category">
+                      <h5>
+                        <i className="fas fa-cubes"></i>
+                        Frameworks & Libraries
+                      </h5>
+                      <div className="dropdown-options">
+                        {frameworksLibraries
+                          .filter(tech => allTech.includes(tech))
+                          .map(tech => (
+                            <label key={tech} className="tech-option">
+                              <input
+                                type="checkbox"
+                                checked={selectedTechs.includes(tech)}
+                                onChange={() => handleTechToggle(tech)}
+                              />
+                              <span className="tech-option-icon">{getTechIcon(tech)}</span>
+                              <span className="tech-option-name">{tech}</span>
+                              <span className="tech-option-count">
+                                ({projects.filter(p => p.techStack.includes(tech)).length})
+                              </span>
+                            </label>
+                          ))}
+                      </div>
+                    </div>
+                    
+                    {/* Databases */}
+                    {databases.filter(tech => allTech.includes(tech)).length > 0 && (
+                      <div className="dropdown-category">
+                        <h5>
+                          <i className="fas fa-database"></i>
+                          Databases
+                        </h5>
+                        <div className="dropdown-options">
+                          {databases
+                            .filter(tech => allTech.includes(tech))
+                            .map(tech => (
+                              <label key={tech} className="tech-option">
+                                <input
+                                  type="checkbox"
+                                  checked={selectedTechs.includes(tech)}
+                                  onChange={() => handleTechToggle(tech)}
+                                />
+                                <span className="tech-option-icon">{getTechIcon(tech)}</span>
+                                <span className="tech-option-name">{tech}</span>
+                                <span className="tech-option-count">
+                                  ({projects.filter(p => p.techStack.includes(tech)).length})
+                                </span>
+                              </label>
+                            ))}
+                        </div>
+                      </div>
+                    )}
+                    
+                    {/* Other Technologies */}
+                    {otherTech.length > 0 && (
+                      <div className="dropdown-category">
+                        <h5>
+                          <i className="fas fa-tools"></i>
+                          Other Technologies
+                        </h5>
+                        <div className="dropdown-options">
+                          {otherTech.map(tech => (
+                            <label key={tech} className="tech-option">
+                              <input
+                                type="checkbox"
+                                checked={selectedTechs.includes(tech)}
+                                onChange={() => handleTechToggle(tech)}
+                              />
+                              <span className="tech-option-icon">{getTechIcon(tech)}</span>
+                              <span className="tech-option-name">{tech}</span>
+                              <span className="tech-option-count">
+                                ({projects.filter(p => p.techStack.includes(tech)).length})
+                              </span>
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    
+                    {/* Apply Button */}
+                    <div className="dropdown-footer">
+                      <button 
+                        className="apply-filter-btn"
+                        onClick={() => setShowTechDropdown(false)}
+                      >
+                        Apply Filters
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* Active Filters Display */}
+      {(activeTab !== 'all' || selectedTechs.length > 0) && (
+        <div className="active-filters">
+          {activeTab !== 'all' && (
+            <span className="active-filter-tag">
+              <i className="fas fa-folder"></i>
+              {tabs.find(t => t.id === activeTab)?.label}
+              <button onClick={() => setActiveTab('all')}>×</button>
+            </span>
+          )}
+          
+          {selectedTechs.map(tech => (
+            <span key={tech} className="active-filter-tag">
+              <i className="fas fa-code"></i>
+              {tech}
+              <button onClick={() => handleTechToggle(tech)}>×</button>
+            </span>
+          ))}
+          
+          {(activeTab !== 'all' || selectedTechs.length > 0) && (
+            <button 
+              className="clear-filters-btn"
+              onClick={() => {
+                setActiveTab('all');
+                clearTechFilters();
+              }}
+            >
+              <i className="fas fa-times-circle"></i>
+              Clear All
+            </button>
+          )}
+        </div>
+      )}
 
       {/* Projects Grid */}
       <div className="projects-grid">
@@ -317,7 +572,7 @@ function ProjectsPage() {
               {project.github && (
                 <a
                   href={project.github}
-                  className="project-link github-link"
+                  className="project-link pgithub-link"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
