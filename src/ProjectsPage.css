@@ -133,11 +133,16 @@
 }
 
 .project-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 15px;
   color: #fff;
-  font-size: 24px;
-  margin-bottom: 20px;
-  font-weight: 700;
   line-height: 1.3;
+  height: 2.6em; /* 2 lines * line-height */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
 }
 
 /* Project Media - IMPROVED QUALITY */
@@ -188,7 +193,7 @@
 
 .project-img {
   width: 100%;
-  height: 100%;
+  height: 80%;
   object-fit: contain; /* Changed from cover to contain */
   background: #000;
   border-radius: 8px;

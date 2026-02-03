@@ -728,7 +728,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 100px;
+    gap: 70px;
     margin-bottom: 60px;
   }
   
@@ -782,6 +782,7 @@
     .skill-name {
       margin-top: 15px;
       font-weight: 500;
+      font-size:0.75rem;
       color: white;
     }
     
@@ -902,6 +903,50 @@
       border-radius: 25px;
     }
   }
+
+  /* Skills Section - View More Button */
+.skills-more-container {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 189, 57, 0.2);
+}
+
+.skills-more-btn {
+    background-color:  #000000;
+    color:  #ffbd39;
+    border: 2px solid #ffbd39;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: #ffbd39;
+  }
+
+.skills-more-btn:hover {
+  background: rgba(255, 189, 57, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 189, 57, 0.2);
+}
+
+.skills-more-btn i {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+/* Desktop: Show all skills, hide button */
+@media (min-width: 769px) {
+  .skills-more-container {
+    display: none;
+  }
+}
 
   /* Timeline Achievement Section */
   #achievements {

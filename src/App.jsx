@@ -1,15 +1,15 @@
 import './App.css';
 import React, { useState, useEffect, useRef } from 'react';
 import emailjs from "@emailjs/browser";
-import { FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaJava, FaDatabase, FaMapSigns, FaPhoneAlt, FaPaperPlane, FaLinkedin } from 'react-icons/fa';
-import { SiTailwindcss, SiNextdotjs } from 'react-icons/si'; // Import Tailwind and Next.js icons from 'si'
+import { FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaJava, FaDatabase, FaMapSigns, FaPhoneAlt, FaPaperPlane, FaLinkedin, FaGithub, FaFigma } from 'react-icons/fa';
+import { SiTailwindcss, SiNextdotjs, SiExpress, SiReact, SiJira, SiPostman, SiMysql, SiTypescript } from 'react-icons/si';
 import pic from './images/bg_1.png';
 import Malaysia from './images/karate.jpeg';
 import football from './images/foodball.jpeg';
 import school from './images/school.jpg';
 import karatee from './images/karate2.jpg';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import ProjectsPage from './ProjectsPage'; // Import the separate ProjectsPage component
+import ProjectsPage from './ProjectsPage';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -17,6 +17,20 @@ function App() {
   const [animatedSections, setAnimatedSections] = useState(new Set());
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isClicking, setIsClicking] = useState(false);
+  const [showAllSkills, setShowAllSkills] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if mobile on mount and resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Add the auto-switching effect for intro sections every 2 seconds
   useEffect(() => {
@@ -104,60 +118,77 @@ function App() {
 
   const form = useRef();
 
-    const handleSubmit = (e) => {
-      e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-      emailjs.sendForm(
-        'service_0oycc1y',
-        'template_hjjfjc1',
-        form.current,
-        'userdhww'
-      )
-      .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
-        alert("Message sent successfully!");
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      })
-      .catch((err) => {
-        console.error('FAILED...', err);
-        alert("Message failed to send.");
-      });
-    };
+    emailjs.sendForm(
+      'service_0oycc1y',
+      'template_hjjfjc1',
+      form.current,
+      'userdhww'
+    )
+    .then((response) => {
+      console.log('SUCCESS!', response.status, response.text);
+      alert("Message sent successfully!");
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    })
+    .catch((err) => {
+      console.error('FAILED...', err);
+      alert("Message failed to send.");
+    });
+  };
 
-    const [limit, setLimit] = useState(9);
+  const [limit, setLimit] = useState(9);
 
   useEffect(() => {
     const updateLimit = () => {
       const width = window.innerWidth;
 
       if (width <= 480) {
-        setLimit(5);        // mobile
+        setLimit(5);
       } else if (width <= 1024) {
-        setLimit(6);        // tablet
+        setLimit(6);
       } else {
-        setLimit(6);        // desktop
+        setLimit(6);
       }
     };
 
-    updateLimit(); // initial
+    updateLimit();
     window.addEventListener("resize", updateLimit);
 
     return () => window.removeEventListener("resize", updateLimit);
   }, []);
 
+  // Updated skills array with all technologies
   const skills = [
     { name: 'HTML', icon: <FaHtml5 color="#ffbd39" size={50} /> },
     { name: 'CSS', icon: <FaCss3Alt color="#ffbd39" size={50} /> },
     { name: 'JavaScript', icon: <FaJs color="#ffbd39" size={50} /> },
+    { name: 'TypeScript', icon: <SiTypescript color="#ffbd39" size={50} /> },
     { name: 'React', icon: <FaReact color="#ffbd39" size={50} /> },
     { name: 'Python', icon: <FaPython color="#ffbd39" size={50} /> },
     { name: 'Java', icon: <FaJava color="#ffbd39" size={50} /> },
     { name: 'Next.js', icon: <SiNextdotjs color="#ffbd39" size={50} /> },
     { name: 'Tailwind', icon: <SiTailwindcss color="#ffbd39" size={50} /> },
     { name: 'Node.js', icon: <FaNodeJs color="#ffbd39" size={50} /> },
-    { name: 'SQL', icon: <FaDatabase color="#ffbd39" size={50} /> },
-
+    { name: 'Express.js', icon: <SiExpress color="#ffbd39" size={50} /> },
+    { name: 'React Native', icon: <SiReact color="#ffbd39" size={50} /> },
+    { name: 'MySQL', icon: <SiMysql color="#ffbd39" size={50} /> },
+    { name: 'Git/GitHub', icon: <FaGithub color="#ffbd39" size={50} /> },
+    { name: 'Postman', icon: <SiPostman color="#ffbd39" size={50} /> },
+    { name: 'Jira', icon: <SiJira color="#ffbd39" size={50} /> },
+    { name: 'Figma', icon: <FaFigma color="#ffbd39" size={50} /> },
   ];
+
+  // Calculate how many skills to show based on screen size
+  const getSkillsToShow = () => {
+    if (!isMobile || showAllSkills) {
+      return skills;
+    }
+    return skills.slice(0, 8); // Show 8 skills on mobile initially
+  };
+
+  const skillsToShow = getSkillsToShow();
 
   const contactDetails = [
     {
@@ -192,7 +223,7 @@ function App() {
     subject: '',
     message: ''
   });
-  const [showMenu, setShowMenu] = useState(false); // For mobile menu toggle
+  const [showMenu, setShowMenu] = useState(false);
 
   return (
     <div className="portfolio">
@@ -263,21 +294,20 @@ function App() {
           />
         </div>
         <div className="floating-orbs">
-          <div class="code-snippet code-1" data-text="const DulminiPortfolio = () => { return <Portfolio />; };">const DulminiPortfolio = () =&gt; &#123; return &lt;Portfolio /&gt;; &#125;;</div>
-          <div class="code-snippet code-2" data-text="useEffect(() => { fetchDulminiProjects(); }, []);">useEffect(() =&gt; &#123; fetchDulminiProjects(); &#125;, []);</div>
-          <div class="code-snippet code-3" data-text="public class DulminiProject { private String title; }">public class DulminiProject &#123; private String title; &#125;</div>
-          <div class="code-snippet code-4" data-text="def dulmini_portfolio(): return render_template('portfolio.html')">def dulmini_portfolio(): return render_template(&apos;portfolio.html&apos;)</div>
-          <div class="code-snippet code-5" data-text="SELECT * FROM dulmini_projects WHERE featured = true;">SELECT * FROM dulmini_projects WHERE featured = true;</div>
-          <div class="code-snippet code-6" data-text="@Entity public class Portfolio { @Id private Long id; }">@Entity public class Portfolio &#123; @Id private Long id; &#125;</div>
-          <div class="code-snippet code-7" data-text="class DulminiAPI(APIView): def get(self, request):">class DulminiAPI(APIView): def get(self, request):</div>
-          <div class="code-snippet code-8" data-text="CREATE TABLE dulmini_skills (id INT, skill_name VARCHAR(100));">CREATE TABLE dulmini_skills (id INT, skill_name VARCHAR(100));</div>
-          <div class="code-snippet code-9" data-text="document.querySelector('.dulmini-nav').addEventListener('click', handler);">document.querySelector(&apos;.dulmini-nav&apos;).addEventListener(&apos;click&apos;, handler);</div>
-          <div class="code-snippet code-10" data-text="@RestController @RequestMapping('/api/dulmini')">@RestController @RequestMapping(&apos;/api/dulmini&apos;)</div>
+          <div className="code-snippet code-1">const DulminiPortfolio = () =&gt; &#123; return &lt;Portfolio /&gt;; &#125;;</div>
+          <div className="code-snippet code-2">useEffect(() =&gt; &#123; fetchDulminiProjects(); &#125;, []);</div>
+          <div className="code-snippet code-3">public class DulminiProject &#123; private String title; &#125;</div>
+          <div className="code-snippet code-4">def dulmini_portfolio(): return render_template(&apos;portfolio.html&apos;)</div>
+          <div className="code-snippet code-5">SELECT * FROM dulmini_projects WHERE featured = true;</div>
+          <div className="code-snippet code-6">@Entity public class Portfolio &#123; @Id private Long id; &#125;</div>
+          <div className="code-snippet code-7">class DulminiAPI(APIView): def get(self, request):</div>
+          <div className="code-snippet code-8">CREATE TABLE dulmini_skills (id INT, skill_name VARCHAR(100));</div>
+          <div className="code-snippet code-9">document.querySelector(&apos;.dulmini-nav&apos;).addEventListener(&apos;click&apos;, handler);</div>
+          <div className="code-snippet code-10">@RestController @RequestMapping(&apos;/api/dulmini&apos;)</div>
         </div>
 
         {/* Home Section with Complete Page Swapping */}
         {showName ? (
-          // PAGE 1 - Name Version
           <section id="home" className={`section home-section ${showName ? 'visible' : ''}`}>
             <div className="intro-section">
               <div className="intro-text">
@@ -408,20 +438,36 @@ function App() {
         {/* Projects Section - Now imported from separate file */}
         <ProjectsPage />
 
-        {/* Skills Section */}
+        {/* Skills Section - UPDATED WITH VIEW MORE */}
         <section id='skills' className="skills-section section-skills">
           <div className="skills-header"> 
             <h2 className="skills-title">My Skills</h2>
             <h1 className="skills-background">Skills</h1>
           </div>
           <div className="skills-grid">
-            {skills.map((skill, index) => (
+            {skillsToShow.map((skill, index) => (
               <div key={index} className="skill-card">
                 {skill.icon}
                 <p className="skill-name">{skill.name}</p>
               </div>
             ))}
           </div>
+          
+          {/* Show More Button for Mobile */}
+          {isMobile && skills.length > 6 && (
+            <div className="skills-more-container">
+              <button 
+                className="skills-more-btn"
+                onClick={() => setShowAllSkills(!showAllSkills)}
+              >
+                {showAllSkills ? 'Show Less' : `Show More`}
+                <i className={`fas fa-chevron-${showAllSkills ? 'up' : 'down'}`}></i>
+              </button>
+              <p className="projects-count">
+                Showing {showAllSkills ? skills.length : 6} of {skills.length} skills
+              </p>
+            </div>
+          )}
         </section>
 
         {/* Blog Section */}

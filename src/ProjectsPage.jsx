@@ -20,7 +20,20 @@ function ProjectsPage() {
   const [selectedTechs, setSelectedTechs] = useState([]);
   const [showTechDropdown, setShowTechDropdown] = useState(false);
   const [showAllProjects, setShowAllProjects] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const dropdownRef = useRef(null);
+  
+  // Check if mobile/tablet
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -236,6 +249,14 @@ function ProjectsPage() {
     
     return categoryMatch && techMatch;
   });
+
+  // Calculate initial projects to show based on screen size
+  const getInitialProjectsCount = () => {
+    return isMobile ? 4 : 6;
+  };
+
+  const initialProjectsCount = getInitialProjectsCount();
+  const projectsToShow = showAllProjects ? filteredProjects.length : initialProjectsCount;
 
   const tabs = [
     { id: 'all', label: 'All Projects' },
@@ -499,7 +520,7 @@ function ProjectsPage() {
 
       {/* Projects Grid */}
       <div className="projects-grid">
-        {filteredProjects.slice(0, showAllProjects ? filteredProjects.length : 6).map((project) => (
+        {filteredProjects.slice(0, projectsToShow).map((project) => (
           <div key={project.id} className="project-card">
             {/* Project Header with Date and Type */}
             <div className="project-header">
@@ -597,18 +618,18 @@ function ProjectsPage() {
         ))}
       </div>
 
-      {/* View More Button - Always show if there are more than 6 projects */}
-      {filteredProjects.length > 6 && (
+      {/* View More Button - Show only if there are more projects than initial count */}
+      {filteredProjects.length > initialProjectsCount && (
         <div className="view-more-container">
           <button 
             className="view-more-btn"
             onClick={() => setShowAllProjects(!showAllProjects)}
           >
-            {showAllProjects ? 'View Less' : 'View More Projects'}
+            {showAllProjects ? 'View Less' : `View More`}
             <i className={`fas fa-chevron-${showAllProjects ? 'up' : 'down'}`}></i>
           </button>
           <p className="projects-count">
-            Showing {showAllProjects ? filteredProjects.length : 6} of {filteredProjects.length} projects
+            Showing {projectsToShow} of {filteredProjects.length} projects
           </p>
         </div>
       )}
