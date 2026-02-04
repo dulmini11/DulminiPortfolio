@@ -10,6 +10,7 @@ import school from './images/school.jpg';
 import karatee from './images/karate2.jpg';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import ProjectsPage from './ProjectsPage';
+import SkillsPage from './SkillsPage';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -159,36 +160,6 @@ function App() {
     return () => window.removeEventListener("resize", updateLimit);
   }, []);
 
-  // Updated skills array with all technologies
-  const skills = [
-    { name: 'HTML', icon: <FaHtml5 color="#ffbd39" size={50} /> },
-    { name: 'CSS', icon: <FaCss3Alt color="#ffbd39" size={50} /> },
-    { name: 'JavaScript', icon: <FaJs color="#ffbd39" size={50} /> },
-    { name: 'TypeScript', icon: <SiTypescript color="#ffbd39" size={50} /> },
-    { name: 'React', icon: <FaReact color="#ffbd39" size={50} /> },
-    { name: 'Python', icon: <FaPython color="#ffbd39" size={50} /> },
-    { name: 'Java', icon: <FaJava color="#ffbd39" size={50} /> },
-    { name: 'Next.js', icon: <SiNextdotjs color="#ffbd39" size={50} /> },
-    { name: 'Tailwind', icon: <SiTailwindcss color="#ffbd39" size={50} /> },
-    { name: 'Node.js', icon: <FaNodeJs color="#ffbd39" size={50} /> },
-    { name: 'Express.js', icon: <SiExpress color="#ffbd39" size={50} /> },
-    { name: 'React Native', icon: <SiReact color="#ffbd39" size={50} /> },
-    { name: 'MySQL', icon: <SiMysql color="#ffbd39" size={50} /> },
-    { name: 'Git/GitHub', icon: <FaGithub color="#ffbd39" size={50} /> },
-    { name: 'Postman', icon: <SiPostman color="#ffbd39" size={50} /> },
-    { name: 'Jira', icon: <SiJira color="#ffbd39" size={50} /> },
-    { name: 'Figma', icon: <FaFigma color="#ffbd39" size={50} /> },
-  ];
-
-  // Calculate how many skills to show based on screen size
-  const getSkillsToShow = () => {
-    if (!isMobile || showAllSkills) {
-      return skills;
-    }
-    return skills.slice(0, 8); // Show 8 skills on mobile initially
-  };
-
-  const skillsToShow = getSkillsToShow();
 
   const contactDetails = [
     {
@@ -437,38 +408,9 @@ function App() {
 
         {/* Projects Section - Now imported from separate file */}
         <ProjectsPage />
-
-        {/* Skills Section - UPDATED WITH VIEW MORE */}
-        <section id='skills' className="skills-section section-skills">
-          <div className="skills-header"> 
-            <h2 className="skills-title">My Skills</h2>
-            <h1 className="skills-background">Skills</h1>
-          </div>
-          <div className="skills-grid">
-            {skillsToShow.map((skill, index) => (
-              <div key={index} className="skill-card">
-                {skill.icon}
-                <p className="skill-name">{skill.name}</p>
-              </div>
-            ))}
-          </div>
-          
-          {/* Show More Button for Mobile */}
-          {isMobile && skills.length > 6 && (
-            <div className="skills-more-container">
-              <button 
-                className="skills-more-btn"
-                onClick={() => setShowAllSkills(!showAllSkills)}
-              >
-                {showAllSkills ? 'Show Less' : `Show More`}
-                <i className={`fas fa-chevron-${showAllSkills ? 'up' : 'down'}`}></i>
-              </button>
-              <p className="projects-count">
-                Showing {showAllSkills ? skills.length : 6} of {skills.length} skills
-              </p>
-            </div>
-          )}
-        </section>
+        
+        {/* Skills Section */}
+        <SkillsPage />
 
         {/* Blog Section */}
         <section id="blog" className="section-blog">
