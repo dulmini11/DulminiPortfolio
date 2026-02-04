@@ -1,0 +1,551 @@
+/* Enhanced Skills Section with Network Animation */
+.skills-section-network {
+  background-color: #000;
+  margin-top: 5px;
+  text-align: center;
+  color: white;
+  margin-bottom: 50px;
+  padding: 80px 0;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.section-skills {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 1s ease-out;
+}
+
+.section-skills.animate-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.skill-header {
+  position: relative;
+  margin-bottom: 60px;
+  margin-top: 100px;
+}
+
+.skill-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  z-index: 2;
+  position: relative;
+}
+
+.skill-background {
+  font-size: 5rem;
+  opacity: 0.1;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  font-weight: 900;
+  margin-top: -20px;
+}
+
+/* Network Lines */
+.network-lines-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.network-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.network-line {
+  opacity: 0;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+
+.network-line.animate {
+  animation: drawLine 2s ease-out forwards, pulse 3s ease-in-out infinite;
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Tabs Navigation */
+.skills-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+  padding: 0 20px;
+}
+
+.tab-button {
+  background: rgba(44, 44, 44, 0.3);
+  border: 2px solid rgba(255, 189, 57, 0);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.tab-button:hover {
+  border-color: rgba(248, 165, 0, 0.5);
+  color: #ffbd39;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 189, 57, 0.2);
+}
+
+.tab-button.active {
+  background: rgba(255, 189, 57, 0.1);
+  border-color: #ffbd39;
+  color: #ffbd39;
+  box-shadow: 0 0 20px rgba(255, 189, 57, 0.3);
+}
+
+.tab-icon {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.tab-label {
+  white-space: nowrap;
+}
+
+.tab-indicator {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: #e9a622;
+  box-shadow: 0 0 10px #ffbd39;
+  animation: indicatorPulse 2s ease-in-out infinite;
+}
+
+@keyframes indicatorPulse {
+  0%, 100% {
+    opacity: 0.5;
+    width: 60%;
+  }
+  50% {
+    opacity: 1;
+    width: 80%;
+  }
+}
+
+/* Skills Grid with Network Style */
+.skills-grid-network {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 70px;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
+  padding: 40px 20px;
+}
+
+.skill-card-network {
+  background-color: rgba(145, 21, 21, 0);
+  padding: 30px;
+  width: 120px;
+  height: 120px;
+  border-radius: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: scale(0.3) translateY(50px);
+  animation: skillAppear 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  border: 2px solid rgba(255, 189, 57, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.skill-card-network::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 75px;
+  padding: 2px;
+  background: linear-gradient(45deg, transparent, #ffbd39, transparent);
+
+  /* Standard property */
+  mask: 
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+
+  /* WebKit fallback */
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skill-card-network:hover::before {
+  opacity: 1;
+  animation: rotateBorder 3s linear infinite;
+}
+
+@keyframes rotateBorder {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes skillAppear {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Dim all skills by default */
+.skill-card-network {
+  opacity: 0.6;
+  filter: grayscale(30%);
+  transition: opacity 0.3s ease, filter 0.3s ease, transform 0.4s ease;
+}
+
+/* Brighten on hover */
+.skill-card-network:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  z-index: 10;
+}
+
+/* Connector Line from top */
+.skill-connector-line {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255, 189, 57, 0), rgba(255, 189, 57, 0.5));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skill-card-network:hover .skill-connector-line {
+  opacity: 1;
+  animation: lineGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes lineGlow {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.skill-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.skill-card-network img,
+.skill-card-network svg {
+  width: 45px;
+  height: 45px;
+  filter: 
+    brightness(0.5) /* Darkens the icon */
+    drop-shadow(0 0 10px rgba(255, 189, 57, 0));
+  transition: all 0.3s ease;
+}
+
+.skill-card-network:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(255, 189, 57, 0.4);
+  background-color: rgba(44, 44, 44, 0.5);
+}
+
+.skill-card-network:hover img,
+.skill-card-network:hover svg {
+  transform: scale(1.1);
+  filter: 
+    brightness(1) /* Restores normal brightness on hover */
+    drop-shadow(0 0 20px rgb(255, 189, 57));
+}
+
+.skill-glow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle, rgba(255, 189, 57, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.skill-card-network:hover .skill-glow {
+  opacity: 1;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+.skill-name {
+  margin-top: 0;
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Animation delays for skill cards */
+.skill-card-network:nth-child(1) { animation-delay: 0.1s; }
+.skill-card-network:nth-child(2) { animation-delay: 0.15s; }
+.skill-card-network:nth-child(3) { animation-delay: 0.2s; }
+.skill-card-network:nth-child(4) { animation-delay: 0.25s; }
+.skill-card-network:nth-child(5) { animation-delay: 0.3s; }
+.skill-card-network:nth-child(6) { animation-delay: 0.35s; }
+.skill-card-network:nth-child(7) { animation-delay: 0.4s; }
+.skill-card-network:nth-child(8) { animation-delay: 0.45s; }
+.skill-card-network:nth-child(9) { animation-delay: 0.5s; }
+.skill-card-network:nth-child(10) { animation-delay: 0.55s; }
+.skill-card-network:nth-child(11) { animation-delay: 0.6s; }
+.skill-card-network:nth-child(12) { animation-delay: 0.65s; }
+.skill-card-network:nth-child(13) { animation-delay: 0.7s; }
+.skill-card-network:nth-child(14) { animation-delay: 0.75s; }
+.skill-card-network:nth-child(15) { animation-delay: 0.8s; }
+.skill-card-network:nth-child(16) { animation-delay: 0.85s; }
+.skill-card-network:nth-child(17) { animation-delay: 0.9s; }
+
+/* View More Button */
+.skills-more-container {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.skills-more-btn {
+  background-color: #000000;
+  color: #ffbd39;
+  border: 2px solid #ffbd39;
+  padding: 15px 40px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(255, 189, 57, 0.1);
+}
+
+.skills-more-btn:hover {
+  background-color: rgba(255, 189, 57, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 189, 57, 0.4);
+  letter-spacing: 1.5px;
+}
+
+.skills-more-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(255, 189, 57, 0.3);
+}
+
+.skills-more-btn i {
+  margin-left: 8px;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.projects-count {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .skills-section-network {
+    padding: 60px 15px;
+  }
+
+  .skills-tabs {
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+
+  .tab-button {
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+
+  .tab-icon {
+    font-size: 14px;
+  }
+
+  .tab-label {
+    display: none;
+  }
+
+  .skills-grid-network {
+    gap: 50px;
+    padding: 30px 10px;
+  }
+
+  .skill-card-network {
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+  }
+
+  .skill-card-network img,
+  .skill-card-network svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .skill-name {
+    font-size: 0.7rem;
+  }
+
+  .skill-connector-line {
+    height: 30px;
+    top: -30px;
+  }
+
+  .skill-title {
+    font-size: 1.8rem;
+  }
+
+  .skill-background {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-tabs {
+    gap: 5px;
+  }
+
+  .tab-button {
+    padding: 8px 12px;
+  }
+
+  .tab-icon {
+    font-size: 16px;
+  }
+
+  .skills-grid-network {
+    gap: 40px;
+  }
+
+  .skill-card-network {
+    width: 90px;
+    height: 90px;
+    padding: 15px;
+  }
+
+  .skill-card-network img,
+  .skill-card-network svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .skill-name {
+    font-size: 0.65rem;
+  }
+
+  .skill-title {
+    font-size: 1.5rem;
+  }
+
+  .skill-background {
+    font-size: 3rem;
+  }
+
+  .skill-more-btn {
+    padding: 10px 25px;
+    font-size: 13px;
+  }
+}
+
+/* For large screens */
+@media (min-width: 1600px) {
+  .skills-grid-network {
+    gap: 90px;
+  }
+
+  .skill-card-network {
+    width: 150px;
+    height: 150px;
+    padding: 35px;
+  }
+
+  .skill-card-network img,
+  .skill-card-network svg {
+    width: 55px;
+    height: 55px;
+  }
+
+  .skill-name {
+    font-size: 0.9rem;
+  }
+
+  .skill-connector-line {
+    height: 50px;
+    top: -50px;
+  }
+}

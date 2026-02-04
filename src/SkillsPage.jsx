@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaJava, FaGithub, FaFigma, FaDatabase, FaServer, FaCode } from 'react-icons/fa';
 import { SiTailwindcss, SiNextdotjs, SiExpress, SiReact, SiJira, SiPostman, SiMysql, SiTypescript, SiMongodb} from 'react-icons/si';
+import './SkillPage.css';
 
 function SkillsPage() {
   const [activeTab, setActiveTab] = useState('all');
