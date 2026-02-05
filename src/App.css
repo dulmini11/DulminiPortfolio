@@ -254,45 +254,21 @@
   }
 
   .code-2 {
-    top: 46%;
-    right: 17%;
-    animation-delay: 3s;
-  }
-
-  .code-3 {
-    bottom: 25%;
-    left: 73%;
-    animation-delay: 4s;
+    bottom: 22%;
+    right: 13%;
+    animation-delay: 6s;
   }
 
   .code-4 {
     top: 75%;
     right: 35%;
-    animation-delay: 3s;
-  }
-
-  .code-5 {
-    bottom: 28%;
-    right: 31%;
-    animation-delay: 4s;
-  }
-
-  .code-6 {
-    top: 51%;
-    left: 53%;
     animation-delay: 5s;
   }
 
-  .code-7 {
-    top: 52%;
-    right: 15%;
-    animation-delay: 1s;
-  }
-
-  .code-8 {
-    bottom: 29%;
-    left: 73%;
-    animation-delay: 6s;
+  .code-6 {
+    top: 48%;
+    left: 53%;
+    animation-delay: 5s;
   }
 
   .code-9{
@@ -302,7 +278,7 @@
   }
 
   .code-10{
-    bottom: 55%;
+    bottom: 25%;
     right: 15%;
     animation-delay: 6s;
   }
@@ -611,6 +587,7 @@
   .profile-section {
     display: flex;
     gap: 40px;
+    margin-top: 40px;
   }
 
   .profile-info {
@@ -654,6 +631,10 @@
     font-size: 15px;
     font-weight: bold;
     text-align: left;
+  }
+
+  .project-count{
+    margin-top: 40px;
   }
 
     .tech-stack-container {
@@ -1108,7 +1089,6 @@
       font-size: 16px;
     }
   }
-
 
   /* Contact Section */
   .contact-section {
@@ -1713,7 +1693,6 @@
   .section-about {
     transform: translateX(-100px);
     opacity: 0;
-    margin-top: 100px;
     transition: all 1s ease-out;
   }
 
