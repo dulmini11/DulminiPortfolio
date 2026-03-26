@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaJava, FaNodeJs, FaDatabase, FaLaravel } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaJava, FaNodeJs, FaDatabase, FaLaravel ,} from 'react-icons/fa';
+import { SiThreedotjs } from 'react-icons/si';
 import { SiTailwindcss, SiNextdotjs, SiTypescript } from 'react-icons/si';
 import './ProjectsPage.css';
 import v4 from './assets/v4.mp4';
@@ -67,6 +68,7 @@ function ProjectsPage() {
       'SQL': <FaDatabase color="#ffbd39" size={16} />,
       'MySQL': <FaDatabase color="#ffbd39" size={16} />,
       'Laravel': <FaLaravel color="#ffbd39" size={16} />,
+      'Three.js': <SiThreedotjs color="#ffbd39" size={16} />,
       'JSON': <span style={{color: '#ffbd39', fontWeight: 'bold'}}>JSON</span>,
       'API': <span style={{color: '#ffbd39'}}>🔗</span>,
       'OpenWeather API': <span style={{color: '#ffbd39'}}>🌤️</span>,
@@ -170,7 +172,7 @@ function ProjectsPage() {
       github: "https://github.com/dulmini11/rubiks-cube-3b",
       deploy: "https://rubik-cube-3d-three.vercel.app",
       video: v11,
-      category: "frontend",
+      category: "3D",
       date: "Mar 2026",
       type: "Individual Project",
       techStack: ["React", "JavaScript", "Three.js"],
@@ -277,6 +279,7 @@ function ProjectsPage() {
     { id: 'fullstack', label: 'Fullstack' },
     { id: 'frontend', label: 'Frontend' },
     { id: 'backend', label: 'Backend' },
+    { id: '3D', label: '3D' },
   ];
 
   // Function to handle video errors

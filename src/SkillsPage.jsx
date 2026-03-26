@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaJava, FaGithub, FaFigma, FaDatabase, FaServer, FaCode } from 'react-icons/fa';
-import { SiTailwindcss, SiNextdotjs, SiExpress, SiReact, SiJira, SiPostman, SiMysql, SiTypescript, SiMongodb} from 'react-icons/si';
+import { SiTailwindcss, SiNextdotjs, SiExpress, SiReact, SiJira, SiPostman, SiMysql, SiTypescript, SiMongodb , SiThreedotjs } from 'react-icons/si';
 import './SkillPage.css';
 
 function SkillsPage() {
@@ -40,6 +40,7 @@ function SkillsPage() {
       { name: 'Express.js', icon: <SiExpress color="#ffbd39" size={50} />, category: 'backend' },
       { name: 'Python', icon: <FaPython color="#ffbd39" size={50} />, category: 'backend' },
       { name: 'Java', icon: <FaJava color="#ffbd39" size={50} />, category: 'backend' },
+      { name: 'Three.js', icon: <SiThreedotjs color="#ffbd39" size={50} />, category: 'frontend' },
       { name: 'MySQL', icon: <SiMysql color="#ffbd39" size={50} />, category: 'database' },
       { name: 'MongoDB', icon: <SiMongodb color="#ffbd39" size={50} />, category: 'database' },
       { name: 'Git/GitHub', icon: <FaGithub color="#ffbd39" size={50} />, category: 'tools' },
