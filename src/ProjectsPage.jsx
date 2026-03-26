@@ -12,6 +12,7 @@ import v7 from './assets/v7.mp4';
 import v8 from './assets/v8.mp4';
 import v9 from './assets/v9.mp4';
 import v10 from './assets/v10.mp4';
+import v11 from './assets/v11.mp4';
 import java from './images/java.png';
 import sd1 from './images/sd1.png';
 
@@ -162,7 +163,20 @@ function ProjectsPage() {
       techStack: ["Java", "JSON"],
     },
     {
-      id: 8,
+      id: 9,
+      title: "3D Rubik’s Cube Game",
+      description: "A fully interactive 3D Rubik’s Cube web application built with React and Three.js, allowing users to rotate, scramble, and solve the cube in real time. Designed to enhance problem-solving skills through engaging 3D interactions and smooth animations.",
+      image: null,
+      github: "https://github.com/dulmini11/rubiks-cube-3b",
+      deploy: "https://rubik-cube-3d-three.vercel.app",
+      video: v11,
+      category: "frontend",
+      date: "Mar 2026",
+      type: "Individual Project",
+      techStack: ["React", "JavaScript", "Three.js"],
+    },
+    {
+      id: 9,
       title: "Real Estate Listings Platform",
       description: "A property search platform featuring filters for type, price, bedrooms, date, and location. Includes dynamic listings, favorites via local storage, responsive UI, tab-based detail views, and Google Maps integration.",
       image: null,
@@ -174,7 +188,7 @@ function ProjectsPage() {
       techStack: ["React", "JavaScript", "CSS"],
     },
     {
-      id: 9,
+      id: 10,
       title: "Climatrix (Weather Website)",
       description: "A real-time weather forecasting application providing current conditions, 7-day forecasts, temperature trends, humidity, wind speed, and sunrise/sunset details in a clean and responsive layout.",
       image: null,
@@ -187,7 +201,7 @@ function ProjectsPage() {
       techStack: ["Next.js", "TypeScript", "OpenWeather API", "Tailwind"],
     },
     {
-      id: 10,
+      id: 11,
       title: "FocusZone",
       description: "A productivity web app featuring a Pomodoro study timer, relaxing video backgrounds, and an interactive Tic Tac Toe game, designed to promote focused work sessions and mindful breaks.",
       image: null,
@@ -200,7 +214,7 @@ function ProjectsPage() {
       techStack: ["React", "JavaScript", "CSS"],
     },
     {
-      id: 11,
+      id: 12,
       title: "QuickRoute E01",
       description: "Developed the frontend of QuickRoute E01, a web-based bus booking platform for the Southern Expressway. Implemented user-friendly interfaces using React.js, enabling seamless bus booking, real-time bus search and ticket visibility.",
       image: null,
@@ -212,7 +226,7 @@ function ProjectsPage() {
       techStack: ["React", "JavaScript", "CSS"],
     },
     {
-      id: 12,
+      id: 13,
       title: "Wellness & Well-Being Website",
       description: "A group project promoting healthy living through recipe pages, wellness product carts, and exercise guides, designed with an interactive and user-friendly interface.",
       image: null,
