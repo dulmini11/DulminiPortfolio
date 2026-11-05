@@ -1,0 +1,421 @@
+/* =========================================================
+   Blog: glowing journey path that draws itself on scroll
+   ========================================================= */
+
+.jp-section {
+  --gold: #ffbd39;
+  --gold-deep: #ff8c00;
+  --node: 64px;
+  position: relative;
+  padding: 0 20px 120px;
+  text-align: center;
+}
+
+.jp-subtitle {
+  margin-top: -50px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #ddd;
+}
+
+.jp-subtitle span {
+  background: linear-gradient(90deg, var(--gold), var(--gold-deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.jp-hint {
+  margin: 6px 0 40px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #666;
+  animation: jp-bob 2s ease-in-out infinite;
+}
+
+@keyframes jp-bob {
+  50% { transform: translateY(5px); }
+}
+
+/* ---------- Layout ---------- */
+.jp-wrap {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 0 20px;
+}
+
+.jp-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.jp-path-base {
+  fill: none;
+  stroke: rgba(255, 189, 57, 0.14);
+  stroke-width: 3;
+  stroke-dasharray: 2 10;
+  stroke-linecap: round;
+}
+
+.jp-path-halo {
+  fill: none;
+  stroke-width: 16;
+  stroke-linecap: round;
+  opacity: 0.18;
+  transition: stroke-dashoffset 0.15s linear;
+}
+
+.jp-path-glow {
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.15s linear;
+}
+
+.jp-spark {
+  fill: #fff;
+}
+
+.jp-spark-halo {
+  fill: rgba(255, 189, 57, 0.35);
+  animation: jp-pulse 1.4s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes jp-pulse {
+  50% { transform: scale(1.6); opacity: 0.3; }
+}
+
+.jp-row {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr var(--node) 1fr;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 70px;
+}
+
+/* Card sits on the left for even rows, right for odd rows */
+.jp-right .jp-card { grid-column: 3; grid-row: 1; }
+.jp-right .jp-node { grid-column: 2; grid-row: 1; }
+.jp-right .jp-spacer { grid-column: 1; grid-row: 1; }
+
+/* ---------- Node (dot on the path) ---------- */
+.jp-node {
+  width: var(--node);
+  height: var(--node);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #0b0b0b;
+  border: 2px solid rgba(255, 189, 57, 0.25);
+  color: rgba(255, 189, 57, 0.4);
+  font-size: 24px;
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1.3);
+}
+
+.jp-row.reached .jp-node {
+  color: #000;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+  box-shadow: 0 0 0 8px rgba(255, 189, 57, 0.12), 0 0 40px rgba(255, 189, 57, 0.6);
+  transform: scale(1.1);
+}
+
+.jp-node-icon {
+  display: flex;
+}
+
+/* ---------- Card ---------- */
+.jp-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+  text-align: left;
+  border-radius: 24px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(255, 189, 57, 0.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.jp-left .jp-card { transform: translateX(-60px); flex-direction: row-reverse; text-align: right; }
+.jp-right .jp-card { transform: translateX(60px); }
+
+.jp-row.reached .jp-card {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.jp-card:hover {
+  border-color: rgba(255, 189, 57, 0.5);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 189, 57, 0.1);
+}
+
+/* Featured (international) milestone glows a little more */
+.jp-featured .jp-card {
+  border-color: rgba(255, 189, 57, 0.35);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255, 189, 57, 0.16), transparent 60%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
+}
+
+.jp-photo {
+  position: relative;
+  flex-shrink: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  padding: 4px;
+  background: conic-gradient(var(--gold), var(--gold-deep), transparent, var(--gold));
+}
+
+.jp-row.reached .jp-photo {
+  animation: jp-spin-in 1.2s ease both;
+}
+
+@keyframes jp-spin-in {
+  from { transform: rotate(-90deg) scale(0.7); }
+}
+
+.jp-photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 4px solid #0b0b0b;
+  transition: transform 0.6s ease;
+}
+
+.jp-card:hover .jp-photo img {
+  transform: scale(1.06);
+}
+
+.jp-body {
+  min-width: 0;
+}
+
+.jp-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.jp-left .jp-top { justify-content: flex-end; }
+
+.jp-year {
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(90deg, var(--gold), var(--gold-deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.jp-tag {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(255, 189, 57, 0.4);
+}
+
+.jp-title {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.jp-loc {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 6px 0 12px;
+  font-size: 13px;
+  color: #999;
+}
+
+.jp-left .jp-loc { justify-content: flex-end; }
+
+.jp-loc svg { color: var(--gold); }
+
+.jp-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.jp-left .jp-list { justify-content: flex-end; }
+
+.jp-list li {
+  padding: 5px 11px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  color: #ddd;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ---------- End node ---------- */
+.jp-end {
+  margin-bottom: 0;
+}
+
+.jp-node-end {
+  border-style: dashed;
+}
+
+.jp-end-text {
+  grid-column: 1 / -1;
+  margin-top: -40px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #777;
+  transition: color 0.5s ease;
+}
+
+.jp-end-text span {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.jp-end.reached .jp-end-text {
+  color: #fff;
+}
+
+.jp-end.reached .jp-node-end {
+  animation: jp-launch 1.6s ease-in-out infinite;
+}
+
+@keyframes jp-launch {
+  50% { transform: scale(1.1) translateY(-6px); }
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1024px) {
+  .jp-row {
+    gap: 30px;
+  }
+
+  .jp-card {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+
+  .jp-top,
+  .jp-loc,
+  .jp-list {
+    justify-content: center !important;
+  }
+
+  .jp-photo {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+/* ---------- Mobile: path on the left, cards on the right ---------- */
+@media (max-width: 768px) {
+  .jp-section {
+    --node: 46px;
+    padding: 0 14px 90px;
+  }
+
+  .jp-subtitle {
+    margin-top: -40px;
+    font-size: 19px;
+  }
+
+  .jp-row,
+  .jp-right {
+    grid-template-columns: var(--node) 1fr;
+    gap: 18px;
+    margin-bottom: 60px;
+  }
+
+  .jp-row .jp-node,
+  .jp-right .jp-node { grid-column: 1; grid-row: 1; font-size: 18px; }
+
+  .jp-row .jp-card,
+  .jp-right .jp-card { grid-column: 2; grid-row: 1; transform: translateX(40px); }
+
+  .jp-row.reached .jp-card { transform: translateX(0); }
+
+  .jp-spacer { display: none; }
+
+  .jp-card {
+    padding: 18px;
+    align-items: flex-start;
+    text-align: left !important;
+  }
+
+  .jp-top,
+  .jp-loc,
+  .jp-list {
+    justify-content: flex-start !important;
+  }
+
+  .jp-photo {
+    width: 100%;
+    height: 170px;
+    border-radius: 16px;
+  }
+
+  .jp-photo img {
+    border-radius: 13px;
+  }
+
+  .jp-row.reached .jp-photo {
+    animation: none;
+  }
+
+  .jp-title {
+    font-size: 17px;
+  }
+
+  .jp-end-text {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 0;
+    text-align: left;
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jp-hint,
+  .jp-spark-halo,
+  .jp-end.reached .jp-node-end,
+  .jp-row.reached .jp-photo {
+    animation: none;
+  }
+
+  .jp-card {
+    transition: none;
+  }
+}

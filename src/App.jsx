@@ -4,13 +4,10 @@ import emailjs from "@emailjs/browser";
 import { FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaJava, FaDatabase, FaMapSigns, FaPhoneAlt, FaPaperPlane, FaLinkedin, FaGithub, FaFigma } from 'react-icons/fa';
 import { SiTailwindcss, SiNextdotjs, SiExpress, SiReact, SiJira, SiPostman, SiMysql, SiTypescript } from 'react-icons/si';
 import pic from './images/bg_1.png';
-import Malaysia from './images/karate.jpeg';
-import football from './images/foodball.jpeg';
-import school from './images/school.jpg';
-import karatee from './images/karate2.jpg';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import ProjectsPage from './ProjectsPage';
 import SkillsPage from './SkillsPage';
+import BlogPage from './BlogPage';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -409,60 +406,7 @@ function App() {
         <SkillsPage />
 
         {/* Blog Section */}
-        <section id="blog" className="section-blog">
-          <div className="achievements-header">
-            <h2 className="achievements-title">My blog</h2>
-            <h1 className="achievements-background">blog</h1>
-          </div>
-          <div className="timeline-container">
-            <div className="achievement-grid">
-              <div className="achievement-item">
-                <div className="achievement-card">
-                  <div className="achievement-year">2018</div>
-                  <div className="achievement-title">Represented the SriLankan junior karate team</div>
-                  <div className="achievement-meta">Malaysia</div>
-                  <img src={Malaysia} alt="Karate" className="achievement-img" />
-                  <p className="mt-4">
-                    1st Runner up Award 13-14 Female Kumite +40kg 8th International Karate-Do Open Championship 2018(Malaysia)
-                  </p>
-                </div>
-              </div>
-              <div className="achievement-item">
-                <div className="achievement-card">
-                  <div className="achievement-year">2018</div>
-                  <div className="achievement-title">National Black belt player</div>
-                  <div className="achievement-meta">Sri Lanka</div>
-                  <img src={karatee} alt="Karate" className="achievement-img" />
-                  <p className="mt-4">National Black belt player - 2018</p>
-                </div>
-              </div>
-              <div className="achievement-item">
-                <div className="achievement-card">
-                  <div className="achievement-year">2016 - 2022</div>
-                  <div className="achievement-title">St. Thomas Girls' High School</div>
-                  <div className="achievement-meta">Matara</div>
-                  <img src={school} alt="School" className="achievement-img" />
-                  <p className="mt-4">Junior Prefect - 2020</p>
-                  <p className="mt-4">Senior Prefect - 2021</p>
-                  <p className="mt-4">Member of dancing, drama team & Eastern Band in school</p>
-                  <p className="mt-4">Empowerment Organization/ Science Society 2017-2019</p>
-                </div>
-              </div>
-              <div className="achievement-item">
-                <div className="achievement-card">
-                  <div className="achievement-year">2016-2022 & 2023-present</div>
-                  <div className="achievement-title">School & University</div>
-                  <div className="achievement-meta">Informatics Institute of Technology / St. Thomas Girls' High School</div>
-                  <img src={football} alt="University" className="achievement-img" />
-                  <p className="mt-4">Athletic - 100m / 400m Hurdles and relay team</p>
-                  <p className="mt-4">Rugby player (Wing)</p>
-                  <p className="mt-4">Football player </p>
-                  <p className="mt-4">Netball player (WA)</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <BlogPage />
 
         {/* Contact Section */}
         <section id='contact' className="skills-section section-contact">
