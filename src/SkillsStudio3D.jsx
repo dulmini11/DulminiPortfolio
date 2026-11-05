@@ -35,6 +35,10 @@ const tabs = [...stacks, PLAY];
 // Showcase camera
 const SHOW_DIST = 7.5;
 
+// Guided tour timing (per stop) and when the demo fires within a stop
+const TOUR_STEP_MS = 7500;
+const TOUR_DEMO_MS = 4000;
+
 const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
 function SkillsStudio3D() {
@@ -43,6 +47,7 @@ function SkillsStudio3D() {
   const apiRef = useRef(null);
   const [active, setActive] = useState(null);
   const [status, setStatus] = useState('idle'); // idle | loading | ready | error
+  const [tour, setTour] = useState(-1); // index into `tabs` while the tour runs
 
   useEffect(() => {
     const mount = mountRef.current;
@@ -107,6 +112,10 @@ function SkillsStudio3D() {
       const controls = new OrbitControls(camera, renderer.domElement);
       controls.enableDamping = true;
       controls.dampingFactor = 0.08;
+      // Idle animation: the overview slowly turns around the studio
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      controls.autoRotateSpeed = 0.6;
+      controls.autoRotate = !reduceMotion;
       controls.enablePan = false;
 
       const setLimits = (mode) => {
@@ -306,9 +315,10 @@ function SkillsStudio3D() {
         };
       };
 
-      const focus = async (id) => {
+      const focus = async (id, { viaStudio = false } = {}) => {
         token += 1;
         const my = token;
+        controls.autoRotate = false;
         if (!id) {
           if (mode === 'showcase') {
             await fade(true);
@@ -316,8 +326,20 @@ function SkillsStudio3D() {
             exitShowcase();
             await fade(false);
           }
-          if (my === token) flyTo(overview);
+          if (my === token) {
+            flyTo(overview, () => {
+              if (my === token) controls.autoRotate = !reduceMotion;
+            });
+          }
           return;
+        }
+        if (viaStudio && mode === 'showcase' && views[id]) {
+          // tour: step back out into the studio before flying to the next spot
+          await fade(true);
+          if (my !== token) return;
+          exitShowcase();
+          await fade(false);
+          if (my !== token) return;
         }
         if (mode === 'studio' && views[id]) {
           // fly to the spot in the studio first, then open the showcase
@@ -375,7 +397,22 @@ function SkillsStudio3D() {
       renderer.domElement.addEventListener('pointermove', onMove);
       renderer.domElement.addEventListener('pointerup', onUp);
 
-      apiRef.current = { focus };
+      // Used by the guided tour: hop every icon in turn, or kick the ball and punch the bag
+      const demo = () => {
+        if (mode !== 'showcase') return;
+        if (showcase) {
+          const current = showcase;
+          current.objects.forEach((o, i) => setTimeout(() => current.hop(o), i * 220));
+        } else if (play.group.parent === show) {
+          const [ball, bag] = play.clickables;
+          play.hit(ball, ball.getWorldPosition(new THREE.Vector3()), camera);
+          setTimeout(() => {
+            if (play.group.parent === show) play.hit(bag, bag.getWorldPosition(new THREE.Vector3()), camera);
+          }, 1300);
+        }
+      };
+
+      apiRef.current = { focus, demo };
       if (import.meta.env.DEV) window.__sk3d = { THREE, scene, show, camera, controls, flyTo };
 
       // Only render while the canvas is on screen
@@ -459,9 +496,38 @@ function SkillsStudio3D() {
     };
   }, []);
 
+  const touringRef = useRef(false);
   useEffect(() => {
-    if (status === 'ready') apiRef.current?.focus(active);
+    if (status === 'ready') apiRef.current?.focus(active, { viaStudio: touringRef.current });
   }, [active, status]);
+
+  // Guided tour: visit every tab, demo it, then return to the overview
+  useEffect(() => {
+    touringRef.current = tour >= 0;
+    if (tour < 0 || status !== 'ready') return undefined;
+    setActive(tabs[tour].id);
+    const demoTimer = setTimeout(() => apiRef.current?.demo(), TOUR_DEMO_MS);
+    const nextTimer = setTimeout(() => {
+      if (tour + 1 < tabs.length) {
+        setTour(tour + 1);
+      } else {
+        setTour(-1);
+        setActive(null);
+      }
+    }, TOUR_STEP_MS);
+    return () => {
+      clearTimeout(demoTimer);
+      clearTimeout(nextTimer);
+    };
+  }, [tour, status]);
+
+  // Any manual choice ends the tour
+  const choose = (id) => {
+    touringRef.current = false;
+    setTour(-1);
+    setActive(id);
+  };
+  const touring = tour >= 0;
 
   const hint =
     active === 'play'
@@ -478,7 +544,7 @@ function SkillsStudio3D() {
           role="tab"
           aria-selected={active === null}
           className={`sk3d-tab ${active === null ? 'is-active' : ''}`}
-          onClick={() => setActive(null)}
+          onClick={() => choose(null)}
         >
           Overview
         </button>
@@ -489,11 +555,19 @@ function SkillsStudio3D() {
             role="tab"
             aria-selected={active === s.id}
             className={`sk3d-tab ${s.id === 'play' ? 'sk3d-tab-play' : ''} ${active === s.id ? 'is-active' : ''}`}
-            onClick={() => setActive(s.id)}
+            onClick={() => choose(s.id)}
           >
             {s.title}
           </button>
         ))}
+        <button
+          type="button"
+          className={`sk3d-tab sk3d-tab-tour ${touring ? 'is-touring' : ''}`}
+          onClick={() => (touring ? choose(null) : setTour(0))}
+          disabled={status !== 'ready'}
+        >
+          {touring ? '■ Stop tour' : '▶ Take a tour'}
+        </button>
       </div>
 
       <div className="sk3d-stage">
@@ -507,12 +581,22 @@ function SkillsStudio3D() {
         )}
 
         {active && (
-          <button type="button" className="sk3d-back" onClick={() => setActive(null)}>
+          <button type="button" className="sk3d-back" onClick={() => choose(null)}>
             <span aria-hidden="true">←</span> Back to studio
           </button>
         )}
 
-        <p className="sk3d-hint">{hint}</p>
+        {touring ? (
+          <div className="sk3d-tour" key={tour}>
+            <span className="sk3d-tour-step">
+              Tour · {tour + 1}/{tabs.length}
+            </span>
+            <strong>{tabs[tour].title}</strong>
+            <span className="sk3d-tour-bar" style={{ animationDuration: `${TOUR_STEP_MS}ms` }} />
+          </div>
+        ) : (
+          <p className="sk3d-hint">{hint}</p>
+        )}
       </div>
     </div>
   );

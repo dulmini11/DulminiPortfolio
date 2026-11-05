@@ -605,3 +605,80 @@
     font-size: 13px;
   }
 }
+
+/* ---------- Guided tour ---------- */
+.sk3d-tab-tour {
+  color: #000;
+  background: #fff;
+  border-color: transparent;
+}
+
+.sk3d-tab-tour:hover {
+  color: #000;
+}
+
+.sk3d-tab-tour.is-touring {
+  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+}
+
+.sk3d-tab-tour:disabled {
+  opacity: 0.5;
+  cursor: default;
+  transform: none;
+}
+
+.sk3d-tour {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  min-width: 170px;
+  padding: 10px 22px 14px;
+  border-radius: 14px;
+  text-align: center;
+  background: rgba(10, 10, 10, 0.72);
+  border: 1px solid rgba(255, 189, 57, 0.35);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+  pointer-events: none;
+  animation: sk3d-in 0.4s ease both;
+}
+
+.sk3d-tour-step {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9a9a9a;
+}
+
+.sk3d-tour strong {
+  display: block;
+  margin-top: 2px;
+  font-size: 18px;
+  color: var(--gold);
+}
+
+.sk3d-tour-bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-deep));
+  transform-origin: left;
+  animation: sk3d-progress linear both;
+}
+
+@keyframes sk3d-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@media (max-width: 600px) {
+  .sk3d-tour {
+    top: auto;
+    right: 50%;
+    bottom: 10px;
+    transform: translateX(50%);
+  }
+}
