@@ -178,10 +178,10 @@ function SkillsStudio3D() {
       const playHome = { position: play.group.position.clone(), rotationY: play.group.rotation.y };
 
       const overview = {
-        target: roomCenter.clone().setY(roomBox.min.y + roomSize.y * 0.3),
+        target: roomCenter.clone().setY(roomBox.min.y + roomSize.y * 0.55),
         position: roomCenter
           .clone()
-          .add(new THREE.Vector3(roomSize.x * 0.58, roomSize.y * 0.75, roomSize.z * 0.78)),
+          .add(new THREE.Vector3(roomSize.x * 0.62, roomSize.y * 0.85, roomSize.z * 0.84)),
       };
       camera.position.copy(overview.position);
       controls.target.copy(overview.target);

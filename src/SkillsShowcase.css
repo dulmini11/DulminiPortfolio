@@ -343,11 +343,8 @@
 
 .sk3d-stage {
   position: relative;
-  height: min(70vh, 620px);
-  border-radius: 22px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 189, 57, 0.16);
-  background: radial-gradient(circle at 50% 40%, rgba(255, 189, 57, 0.08), rgba(0, 0, 0, 0.6) 70%);
+  height: min(75vh, 680px);
+  /* no frame: the model floats freely on the page */
 }
 
 .sk3d-canvas {
@@ -553,7 +550,7 @@
 .sk3d-fade {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 50%, #1a1206, #000 75%);
+  background: #000;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.38s ease;
