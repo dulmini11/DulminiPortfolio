@@ -298,3 +298,310 @@
     animation: none;
   }
 }
+
+/* ---------- 3D skills studio ---------- */
+.sk3d {
+  max-width: 1100px;
+  margin: 50px auto 0;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.sk3d-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.sk3d-tab {
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #cfcfcf;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 189, 57, 0.18);
+  cursor: pointer;
+  transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.sk3d-tab:hover {
+  color: #fff;
+  border-color: rgba(255, 189, 57, 0.6);
+  transform: translateY(-2px);
+}
+
+.sk3d-tab.is-active {
+  color: #000;
+  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(255, 189, 57, 0.3);
+}
+
+.sk3d-stage {
+  position: relative;
+  height: min(70vh, 620px);
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 189, 57, 0.16);
+  background: radial-gradient(circle at 50% 40%, rgba(255, 189, 57, 0.08), rgba(0, 0, 0, 0.6) 70%);
+}
+
+.sk3d-canvas {
+  position: absolute;
+  inset: 0;
+  cursor: grab;
+}
+
+.sk3d-canvas:active {
+  cursor: grabbing;
+}
+
+.sk3d-canvas canvas {
+  display: block;
+}
+
+.sk3d-status {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #a8a8a8;
+  font-size: 15px;
+  pointer-events: none;
+}
+
+
+
+
+
+.sk3d-hint {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  margin: 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  pointer-events: none;
+}
+
+@keyframes sk3d-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 600px) {
+  .sk3d-stage {
+    height: 60vh;
+  }
+
+  .sk3d-tab {
+    padding: 7px 13px;
+    font-size: 13px;
+  }
+
+}
+
+
+.sk3d-tab-play:not(.is-active) {
+  border-color: rgba(255, 189, 57, 0.55);
+  color: var(--gold);
+}
+
+/* ---------- Areas of Knowledge ---------- */
+.ak {
+  max-width: 1100px;
+  margin: 70px auto 0;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.ak-title {
+  margin: 0 0 30px;
+  font-size: 30px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.ak-title span {
+  color: var(--gold);
+}
+
+.ak-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: left;
+}
+
+.ak-card {
+  --mx: 50%;
+  --my: 50%;
+  position: relative;
+  overflow: hidden;
+  padding: 26px 22px;
+  border-radius: 20px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(255, 189, 57, 0.14);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.section-skills.animate-in .ak-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease var(--delay), transform 0.7s ease var(--delay),
+    border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.ak-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(260px circle at var(--mx) var(--my), rgba(255, 189, 57, 0.14), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.ak-card:hover::before {
+  opacity: 1;
+}
+
+.ak-card:hover {
+  border-color: rgba(255, 189, 57, 0.5);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+}
+
+.section-skills.animate-in .ak-card:hover {
+  transform: translateY(-6px);
+}
+
+.ak-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  font-size: 22px;
+  color: #000;
+  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+  box-shadow: 0 8px 20px rgba(255, 189, 57, 0.3);
+  transition: transform 0.35s ease;
+}
+
+.ak-card:hover .ak-icon {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.ak-card h4 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.ak-card p {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #9a9a9a;
+}
+
+.ak-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ak-card li {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: #ddd;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 1000px) {
+  .ak-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .ak-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ak-title {
+    font-size: 24px;
+  }
+}
+
+/* ---------- Showcase fade + back button ---------- */
+.sk3d-fade {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, #1a1206, #000 75%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.38s ease;
+}
+
+.sk3d-fade.is-on {
+  opacity: 1;
+}
+
+.sk3d-back {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+  border: none;
+  box-shadow: 0 8px 22px rgba(255, 189, 57, 0.35);
+  cursor: pointer;
+  animation: sk3d-in 0.45s ease both;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sk3d-back:hover {
+  transform: translateX(-3px);
+  box-shadow: 0 10px 28px rgba(255, 189, 57, 0.5);
+}
+
+.sk3d-back span {
+  font-size: 16px;
+  transition: transform 0.25s ease;
+}
+
+.sk3d-back:hover span {
+  transform: translateX(-3px);
+}
+
+@media (max-width: 600px) {
+  .sk3d-back {
+    top: 10px;
+    left: 10px;
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+}
